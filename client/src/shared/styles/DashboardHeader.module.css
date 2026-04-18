@@ -1,12 +1,105 @@
 .header {
-  margin: 15px 20px;
-  padding: 10px 30px;
-  border-radius: 35px;
-  box-shadow: 0 0 5px rgba(223, 221, 221, 0.49);
+  margin: 18px 20px;
   margin-left: 330px;
+  padding: 18px 26px;
+  border-radius: 28px;
+  border: 1px solid rgba(34, 197, 94, 0.12);
+  background: rgba(199, 252, 222, 0.7);
+  box-shadow: 0 18px 40px rgba(22, 101, 52, 0.08);
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.avatar {
+  width: 58px;
+  height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  box-shadow: 0 14px 24px rgba(22, 154, 70, 0.25);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dashboardOverViewTitle {
+  color: var(--color-success-dark);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .fullName {
-  font-size: var(--fs-md);
-  font-weight: 500;
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--color-success-dark);
+}
+
+.email {
+  color: #4b5563;
+  font-size: var(--fs-sm);
+}
+
+.statusCard {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(22, 154, 70, 0.12);
+  box-shadow: 0 10px 24px rgba(22, 101, 52, 0.08);
+  flex-shrink: 0;
+}
+
+.statusDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background-color: var(--color-success);
+  box-shadow: 0 0 0 6px rgba(22, 154, 70, 0.14);
+}
+
+.statusCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statusLabel {
+  color: #6b7280;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.statusValue {
+  color: var(--color-success-dark);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .statusCard {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
