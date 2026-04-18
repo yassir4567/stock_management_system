@@ -8,13 +8,24 @@ import { NavLink } from "react-router-dom";
 function DashboardSideBar() {
   return (
     <aside className={styles.sideBar}>
-      <h2 className={styles.title}>Admin Dashboard</h2>
+      <div className={styles.header}>
+        <span className={styles.titleEyebrow}>Workspace</span>
+        <div className={styles.titleBlock}>
+          <h2 className={styles.title}>Admin Dashboard</h2>
+          <p className={styles.subtitle}>
+            Manage stock, people, and daily operations.
+          </p>
+        </div>
+      </div>
       <nav className={styles.navbar}>
+        <span className={styles.sectionLabel}>Main menu</span>
         <ul className={styles.navbarItems}>
           <li className={styles.navbarItem}>
             <NavLink className={styles.link}>
-              <MdOutlineDashboard className={styles.icon} />
-              <span>Dashboard</span>
+              <span className={styles.linkIcon}>
+                <MdOutlineDashboard className={styles.icon} />
+              </span>
+              <span className={styles.linkText}>Dashboard</span>
             </NavLink>
           </li>
           <li className={styles.navbarItem}>
@@ -26,31 +37,43 @@ function DashboardSideBar() {
                   : `${styles.link}`
               }
             >
-              <BsCart4 className={styles.icon} />
-              <span>Products</span>
+              <span className={styles.linkIcon}>
+                <BsCart4 className={styles.icon} />
+              </span>
+              <span className={styles.linkText}>Products</span>
             </NavLink>
           </li>
           <li className={styles.navbarItem}>
             <NavLink className={styles.link}>
-              <MdOutlineCategory className={styles.icon} />
-              <span>Categories</span>
+              <span className={styles.linkIcon}>
+                <MdOutlineCategory className={styles.icon} />
+              </span>
+              <span className={styles.linkText}>Categories</span>
             </NavLink>
           </li>
           <li className={styles.navbarItem}>
             <NavLink className={styles.link}>
-              <BsCarFront className={styles.icon} />
-              <span>Suppliers</span>
+              <span className={styles.linkIcon}>
+                <BsCarFront className={styles.icon} />
+              </span>
+              <span className={styles.linkText}>Suppliers</span>
             </NavLink>
           </li>
           <li className={styles.navbarItem}>
             <NavLink className={styles.link}>
-              <FiUsers className={styles.icon} />
-              <span>Users</span>
+              <span className={styles.linkIcon}>
+                <FiUsers className={styles.icon} />
+              </span>
+              <span className={styles.linkText}>Users</span>
             </NavLink>
           </li>
         </ul>
       </nav>
-      <button className={styles.logout}>Logout</button>
+      <div className={styles.footer}>
+        <button className={styles.logout}>
+          <span className={styles.logoutText}>Logout</span>
+        </button>
+      </div>
     </aside>
   );
 }
