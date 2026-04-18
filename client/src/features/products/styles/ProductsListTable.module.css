@@ -1,0 +1,133 @@
+.tableWrapper {
+  margin-top: 20px;
+  background-color: var(--color-light);
+  padding: 14px;
+  border-radius: 5px;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0 12px;
+}
+
+.table thead th {
+  padding: 0 16px 8px;
+  color: var(--color-success-dark);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.productId {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  background-color: var(--color-success);
+  color: var(--color-white);
+  font-size: var(--fs-sm);
+}
+
+.nameCell {
+  min-width: 210px;
+}
+
+
+.table tbody td {
+  padding: 10px 16px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.table tbody td:not(.nameCell) {
+  text-align: center;
+}
+
+.table tbody td:first-child {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.table tbody td:last-child {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.table tbody td span:not(span.productId) {
+  background-color: var(--color-light);
+  padding: 13px 12px;
+  border-radius: 999px;
+  display: inline-block;
+  font-size: var(--fs-sm);
+}
+
+.productName {
+  font-size: var(--fs-base);
+}
+
+.statusCell {
+  min-width: 145px;
+}
+
+.status {
+  font-size: var(--fs-xs);
+  width: fit-content;
+  text-align: center;
+  font-weight: 500;
+}
+
+.outOfStock {
+  background-color: var(--color-primary-bg) !important;
+  color: var(--color-primary);
+}
+
+.lowStock {
+  background-color: var(--color-warning-bg) !important;
+  color: var(--color-warning);
+}
+
+.inStock {
+  background-color: var(--color-success-bg) !important;
+  color: var(--color-success-dark);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.actionBtn {
+  width: 35px;
+  height: 35px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .2s;
+}
+
+.actionBtn:hover {
+  transform: scale(1.1);
+}
+
+.actionBtn.detail {
+  background-color: var(--color-success-light);
+}
+.actionBtn.edit {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+.actionBtn.delete {
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary);
+}

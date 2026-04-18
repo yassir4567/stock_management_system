@@ -1,0 +1,12 @@
+.header {
+  margin: 15px 20px;
+  padding: 10px 30px;
+  border-radius: 35px;
+  box-shadow: 0 0 5px rgba(223, 221, 221, 0.49);
+  margin-left: 330px;
+}
+
+.fullName {
+  font-size: var(--fs-md);
+  font-weight: 500;
+}

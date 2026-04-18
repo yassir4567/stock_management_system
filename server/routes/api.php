@@ -1,0 +1,22 @@
+<?php
+
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
+use Illuminate\Support\Facades\Route;
+
+// * Products Routes
+Route::get("/products" , [ProductController::class , 'index']) ;
+Route::post("/products" , [ProductController::class , 'store']) ;
+Route::put("/products/{id}" , [ProductController::class , 'update']) ;
+Route::delete('/products/{id}' , [ProductController::class , 'delete']) ;
+
+
+// * Categories routes 
+Route::get('/categories' , [CategoryController::class , 'index']) ;
+Route::get('/categories/options' , [CategoryController::class , 'options']) ;
+
+
+// * Suppliers Routes
+Route::get('/suppliers' , [SupplierController::class , 'index']) ;
+Route::get('/suppliers/options' , [SupplierController::class , 'options']) ;

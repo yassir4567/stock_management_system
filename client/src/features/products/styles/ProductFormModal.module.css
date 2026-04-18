@@ -1,0 +1,128 @@
+.container {
+  position: fixed;
+  inset: 0;
+  background: rgba(181, 181, 181, 0.662);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.modal {
+  width: min(700px, 100%);
+  margin: auto;
+  background-color: var(--color-white);
+  padding: 30px 35px;
+  border-radius: 20px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalTitle {
+  font-size: var(--fs-lg);
+  font-weight: 550;
+}
+
+.generalError {
+  color: var(--color-danger);
+  font-size: var(--fs-sm);
+}
+
+.form {
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.error {
+  color: var(--color-danger);
+  font-size: var(--fs-xs);
+  margin-top: 3px;
+}
+
+.inputBox,
+.selectBox,
+.textareaBox,
+.actionsBox {
+  width: 100%;
+}
+
+.inputBox input,
+.selectBox select,
+.textareaBox textarea {
+  height: 40px;
+  width: 100%;
+  border-radius: 10px;
+  padding-inline: 10px;
+  border: 1px solid var(--color-light);
+}
+
+.inputBox label {
+  font-size: var(--fs-sm);
+  text-transform: capitalize;
+  margin-bottom: 7px;
+  display: block;
+}
+.inputBox input::placeholder,
+.textareaBox textarea::placeholder {
+  font-size: var(--fs-xs);
+}
+.inputBox input:hover,
+.selectBox select:hover,
+.textareaBox textarea:hover {
+  border: 1px solid var(--color-success-bg);
+}
+
+.inputBox input:focus,
+.selectBox select:focus,
+.textareaBox textarea:focus {
+  border: 1px solid var(--color-accent);
+}
+
+.selectBox select {
+  background-color: var(--color-white);
+}
+
+.textareaBox textarea {
+  padding: 10px;
+  height: 60px;
+}
+
+.actionsBox {
+  display: flex;
+  gap: 20px;
+}
+
+.action {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  font-size: var(--fs-md);
+  transition: 0.1s;
+}
+
+.send {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: 1px solid transparent;
+}
+
+.cancel {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}

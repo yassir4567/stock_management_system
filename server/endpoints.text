@@ -1,0 +1,21 @@
+
+GET /api/products (get all products)
+GET /api/products/{id} (get product with id)
+POST /api/products (create new product)
+PUT /api/products/{id} (update product)
+DELETE /api/products/{id} (delete product)
+
+
+GET /api/categories
+GET /api/categories/options
+GET /api/categories/{id}
+POST /api/categories
+PUT /api/categories/{id}
+DELETE /api/categories/{id}
+
+
+GET /api/suppliers 
+GET /api/suppliers/{id}
+POST /api/suppliers
+PUT /api/suppliers/{id}
+DELETE /api/suppliers/{id}
