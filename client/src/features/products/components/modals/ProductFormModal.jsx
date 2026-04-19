@@ -3,15 +3,7 @@ import styles from "../../styles/ProductFormModal.module.css";
 import { createProduct } from "../../../../api/products/createProduct";
 import { updateProduct } from "../../../../api/products/updateProduct";
 import { deleteProduct } from "../../../../api/products/deleteProduct";
-
-const sortObject = (object) => {
-  return Object.keys(object)
-    .sort()
-    .reduce((acc, key) => {
-      acc[key] = object[key];
-      return acc;
-    }, {});
-};
+import { sortObject } from "../../../../helpers/helpers";
 
 function ProductFormModal({
   mode,

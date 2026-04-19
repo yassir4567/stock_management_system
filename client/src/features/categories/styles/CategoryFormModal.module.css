@@ -34,73 +34,67 @@
 }
 
 .form {
-  margin-top: 20px;
-}
-
-.row {
+  margin-top: 30px;
   display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
-.form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.error {
-  color: var(--color-danger);
-  font-size: var(--fs-xs);
-  margin-top: 3px;
-}
-
 .inputBox,
-.selectBox,
-.textareaBox,
-.actionsBox {
-  width: 100%;
+.textareaBox {
+  flex: 1;
+  height: fit-content;
 }
 
-.inputBox input,
-.selectBox select,
-.textareaBox textarea {
-  height: 40px;
+.inputBox .label,
+.textareaBox .label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: var(--fs-sm);
+  text-transform: capitalize;
+}
+
+.inputBox .input {
+  height: 50px;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 13px;
+  border: 1px solid var(--color-light);
   padding-inline: 10px;
   border: 2px solid var(--color-light);
 }
 
-.inputBox label {
-  font-size: var(--fs-sm);
-  text-transform: capitalize;
-  margin-bottom: 7px;
-  display: block;
-}
-.inputBox input::placeholder,
-.textareaBox textarea::placeholder {
-  font-size: var(--fs-xs);
-}
 .inputBox input:hover,
-.selectBox select:hover,
 .textareaBox textarea:hover {
   border: 2px solid var(--color-success-bg);
 }
 
 .inputBox input:focus,
-.selectBox select:focus,
 .textareaBox textarea:focus {
   border: 2px solid var(--color-accent);
 }
 
-.selectBox select {
-  background-color: var(--color-white);
+.textareaBox .labelAndMax {
+    display: flex;
+    justify-content: space-between;
 }
 
-.textareaBox textarea {
-  padding: 10px;
-  height: 60px;
+.maxLetters {
+    font-size: var(--fs-sm);   
+}
+
+.textareaBox .textarea {
+  height: 80px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 8px 10px;
+  border: 2px solid var(--color-light);
+}
+
+.error {
+  color: var(--color-danger);
+  font-size: var(--fs-sm);
+  margin-top: 3px;
+  margin-left: 5px;
 }
 
 .actionsBox {
@@ -113,11 +107,7 @@
   height: 40px;
   border-radius: 10px;
   font-size: var(--fs-md);
-  transition: 0.2s ease;
-}
-
-.action:hover {
-  transform: translateY(2px);
+  transition: 0.1s;
 }
 
 .send {

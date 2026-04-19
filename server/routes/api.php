@@ -15,6 +15,8 @@ Route::delete('/products/{id}' , [ProductController::class , 'delete']) ;
 // * Categories routes 
 Route::get('/categories' , [CategoryController::class , 'index']) ;
 Route::get('/categories/options' , [CategoryController::class , 'options']) ;
+Route::post('/categories' , [CategoryController::class , 'store']) ;
+Route::put('/categories/{id}' , [CategoryController::class , 'update']) ;
 
 
 // * Suppliers Routes

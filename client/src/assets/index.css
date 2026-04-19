@@ -6,10 +6,12 @@
   --color-success-bg: #c7fcde;
 
   --color-white: #ffffff;
-  --color-white-light: #f3f4f6;
+  --color-white-light: #ffffffb3;
+  --color-light-soft: #ffffff1f;
   --color-gray: #a3a4a4;
   --color-light: #eeededc7;
   --color-black: #000000;
+  --color-black-soft: #00000024;
   --color-primary-soft: #e94646;
   --color-primary-bg: #f787874a;
   --color-danger: #f95039;

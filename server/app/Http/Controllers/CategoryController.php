@@ -10,7 +10,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::all() ;
+        $categories = Category::select('id' , 'name' , 'description' , 'created_at')->withCount('products')->get() ;
         return response()->json(['data' => $categories] , 200) ;
     }
 
@@ -22,6 +22,18 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'name' => 'required|string' ,
+            'description' => 'required|max:120'
+        ]) ;
+
+        $category = Category::create($validated) ;
+
+        $category = Category::select('id' , 'name' , 'description' , 'created_at')->withCount('products')->find($category->id) ;
+        return response()->json([
+            'message' => "Category created successfully" ,
+            'data' => $category 
+        ]) ;
     }
 
 
@@ -33,6 +45,18 @@ class CategoryController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $category = Category::findOrFail($id) ;
+        $validated = $request->validate([
+            'name' => 'required|string' ,
+            'description' => 'required|max:120'
+        ]); 
+
+        $category->update($validated) ;
+
+        $category = Category::select('id' , 'name' , 'description' , 'created_at')
+        ->withCount('products')->find($category->id) ;
+
+        return response()->json(['message' => "Product updated successfully" ,'data' => $category]) ;
     }
 
     public function destroy(string $id)

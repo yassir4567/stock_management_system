@@ -17,11 +17,12 @@ function DashboardSideBar() {
           </p>
         </div>
       </div>
+
       <nav className={styles.navbar}>
         <span className={styles.sectionLabel}>Main menu</span>
         <ul className={styles.navbarItems}>
           <li className={styles.navbarItem}>
-            <NavLink className={styles.link}>
+            <NavLink to="/a" className={styles.link}>
               <span className={styles.linkIcon}>
                 <MdOutlineDashboard className={styles.icon} />
               </span>
@@ -44,7 +45,14 @@ function DashboardSideBar() {
             </NavLink>
           </li>
           <li className={styles.navbarItem}>
-            <NavLink className={styles.link}>
+            <NavLink
+              to="categories"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.link} ${styles.activeLink} `
+                  : `${styles.link}`
+              }
+            >
               <span className={styles.linkIcon}>
                 <MdOutlineCategory className={styles.icon} />
               </span>
@@ -69,6 +77,7 @@ function DashboardSideBar() {
           </li>
         </ul>
       </nav>
+      
       <div className={styles.footer}>
         <button className={styles.logout}>
           <span className={styles.logoutText}>Logout</span>

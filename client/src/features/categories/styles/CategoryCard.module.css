@@ -1,0 +1,128 @@
+.categoryCard {
+  width: calc(50% - 20px);
+  background: #c7fcde;
+  background: linear-gradient(
+    150deg,
+    var(--color-light) 0%,
+    var(--color-success-bg) 82%
+  );
+  border-radius: 15px;
+  padding: 18px 22px;
+  min-height: 270px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categoryNameBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  background-color: var(--color-accent);
+  width: 47px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--color-white);
+  border-radius: 12px;
+}
+
+.content .subTitle {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--color-success-dark);
+  text-transform: uppercase;
+}
+
+.categoryName {
+  color: var(--color-success);
+  font-size: var(--fs-lg);
+  font-weight: 650;
+}
+
+.createdData {
+  font-size: var(--fs-sm);
+  color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.mainBox {
+  margin-top: 30px;
+  margin-inline: 15px;
+}
+
+.mainWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.productsCountBox,
+.descriptionBox {
+  background-color: var(--color-white-light);
+  padding: 10px 13px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.productsCountBox {
+  width: 30%;
+}
+.descriptionBox {
+  flex: 1;
+}
+
+.minTitle {
+  font-size: var(--fs-xs);
+  color: var(--color-gray);
+  margin-bottom: 5px;
+}
+
+.productsCountBox .count {
+  font-size: var(--fs-4xl);
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.descriptionBox .description {
+  font-size: var(--fs-sm);
+}
+
+.actions {
+  margin: 25px 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.actionBtn {
+  flex: 1;
+  height: 40px;
+  color: var(--color-white);
+  border-radius: 8px;
+  font-size: var(--fs-base);
+  text-transform: capitalize;
+  transition: 0.2s ease;
+}
+
+.actionBtn:hover {
+  transform: translateY(2px);
+}
+
+.actionBtn.edit {
+  background-color: var(--color-accent);
+}
+
+.actionBtn.delete {
+  background-color: var(--color-danger);
+}

@@ -2,7 +2,7 @@ import styles from "../styles/DashboardHeader.module.css";
 
 function DashboardHeader() {
   return (
-    <header className={styles.header}>
+    <header className={styles.dashboardHeader}>
       <div className={styles.identity}>
         <div className={styles.avatar}>FN</div>
         <div className={styles.content}>
