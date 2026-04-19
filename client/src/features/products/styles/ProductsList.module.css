@@ -5,6 +5,7 @@
 }
 
 .table {
+  flex: 1;
   margin-top: 35px;
   border: 1px solid var(--color-success);
   border-radius: 5px;

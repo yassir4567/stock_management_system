@@ -48,7 +48,7 @@ function CategoriesList() {
 
   return (
     <div className={styles.categoriesListPage}>
-      <CategoriesListHeader onOpenModal={onOpenModal} />
+      <CategoriesListHeader onOpenModal={onOpenModal} total={categories.length} />
 
       <div className={styles.categoryCards}>
         {HasCategories ? (
@@ -60,7 +60,7 @@ function CategoriesList() {
             />
           ))
         ) : (
-          <p>Empty categories</p>
+          <div className={styles.empty}>Empty categories</div>
         )}
       </div>
 

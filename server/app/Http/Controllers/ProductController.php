@@ -7,11 +7,24 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::select('id' , 'category_id' , 'supplier_id' , 'name' , 'price' , 'quantity' , 'description')
-        ->with(['category:id,name', 'supplier:id,name'])->get();
+        $query = Product::query() ;
 
+        if($request->filled('category_id')) {
+            $query->where('category_id' , $request->category_id) ;
+        }
+
+        if($request->filled('supplier_id')) {
+            $query->where('supplier_id' , $request->supplier_id) ;
+        }
+
+        if($request->filled('search')) {
+            $query->where('name' , 'like' , "%{$request->search}%") ;
+        }
+
+        $products = $query->with(['category:id,name', 'supplier:id,name'])->get() ;
+ 
         return response()->json(['data' => $products]);
     }
 

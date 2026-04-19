@@ -39,8 +39,12 @@
   font-size: var(--fs-sm);
 }
 
+.productId {
+  max-width: 50px;
+}
+
 .nameCell {
-  min-width: 210px;
+  min-width: 200px;
 }
 
 

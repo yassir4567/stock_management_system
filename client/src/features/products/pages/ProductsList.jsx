@@ -21,12 +21,12 @@ function ProductsList() {
 
   async function loadCategories() {
     const data = await getCategoriesForOptions();
-    setCategories(data.data);
+    setCategories(data?.data ?? []);
   }
 
   async function loadSuppliers() {
     const data = await getSuppliersForOptions();
-    setSuppliers(data.data);
+    setSuppliers(data?.data ?? []);
   }
 
   async function loadProducts() {
@@ -62,7 +62,11 @@ function ProductsList() {
 
   return (
     <div className={styles.productsList}>
-      <ProductsListHeader categories={categories} suppliers={suppliers} />
+      <ProductsListHeader
+        setProducts={setProducts}
+        categories={categories}
+        suppliers={suppliers}
+      />
 
       <div className={styles.table}>
         <div className={styles.tableHeader}>

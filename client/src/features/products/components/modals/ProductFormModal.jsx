@@ -158,7 +158,7 @@ function ProductFormModal({
             <p className={styles.generalError}>{generalError}</p>
           )}
         </div>
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.form} method="POST" onSubmit={handleSubmit}>
           <div className={styles.row}>
             {inputs.row1.map((row, index) => (
               <div key={index} className={styles.inputBox}>
