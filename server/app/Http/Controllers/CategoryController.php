@@ -59,8 +59,11 @@ class CategoryController extends Controller
         return response()->json(['message' => "Product updated successfully" ,'data' => $category]) ;
     }
 
-    public function destroy(string $id)
+    public function delete(string $id)
     {
         //
+        $category = Category::findOrFail($id) ;
+        $category->delete($id) ;
+        return response()->json(['message' => 'Category deleted successfully']) ;
     }
 }
