@@ -1,14 +1,21 @@
-import { BASE_URL } from "../config";
+import { BASE_URL, getToken } from "../config";
 
 async function getProducts() {
   try {
-    const response = await fetch(`${BASE_URL}/api/products`) ;
-    if(!response.ok) {
-      throw new Error('Chi 7aja makhdamach') ;
+    const token = getToken();
+    const response = await fetch(`${BASE_URL}/api/products`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        ...(token && { Authorization: `Bearer ${token}` }),
+      },
+    });
+    if (!response.ok) {
+      throw new Error("Chi 7aja makhdamach");
     }
-    const data = await response.json() 
+    const data = await response.json();
 
-    return data ;
+    return data;
   } catch (err) {
     console.log(err);
   }

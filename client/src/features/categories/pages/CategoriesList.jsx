@@ -59,8 +59,6 @@ function CategoriesList() {
 
   const HasCategories = categories?.length > 0;
 
-
-
   return (
     <div className={styles.categoriesListPage}>
       <CategoriesListHeader

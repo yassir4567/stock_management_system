@@ -4,8 +4,16 @@ import { BsCart4 } from "react-icons/bs";
 import { BsCarFront } from "react-icons/bs";
 import { FiUsers } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
+import { logoutUser } from "../../api/auth/logout";
+import { useAuth } from "../../context/AuthContext";
 
 function DashboardSideBar() {
+  const { logout } = useAuth();
+
+  const handleLogout = async () => {
+    await logout();
+  };
+
   return (
     <aside className={styles.sideBar}>
       <div className={styles.header}>
@@ -22,7 +30,14 @@ function DashboardSideBar() {
         <span className={styles.sectionLabel}>Main menu</span>
         <ul className={styles.navbarItems}>
           <li className={styles.navbarItem}>
-            <NavLink to="/a" className={styles.link}>
+            <NavLink
+              to="dashboard"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.link} ${styles.activeLink} `
+                  : `${styles.link}`
+              }
+            >
               <span className={styles.linkIcon}>
                 <MdOutlineDashboard className={styles.icon} />
               </span>
@@ -77,9 +92,9 @@ function DashboardSideBar() {
           </li>
         </ul>
       </nav>
-      
+
       <div className={styles.footer}>
-        <button className={styles.logout}>
+        <button onClick={handleLogout} className={styles.logout}>
           <span className={styles.logoutText}>Logout</span>
         </button>
       </div>

@@ -1,10 +1,12 @@
-import { BASE_URL } from "../config";
+import { BASE_URL, getToken } from "../config";
 
 async function getCategoriesForOptions() {
   try {
+    const token = getToken();
     const response = await fetch(`${BASE_URL}/api/categories/options`, {
       headers: {
         Accept: "application/json",
+        ...(token && { Authorization: `Bearer ${token}` }),
       },
     });
     if (!response.ok) {
@@ -12,7 +14,7 @@ async function getCategoriesForOptions() {
     }
     const data = await response.json();
 
-    return data ;
+    return data;
   } catch (err) {
     console.log(err);
   }

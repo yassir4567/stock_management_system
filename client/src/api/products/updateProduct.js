@@ -1,12 +1,14 @@
-import { BASE_URL } from "../config";
+import { BASE_URL, getToken } from "../config";
 
 const updateProduct = async (form, id) => {
   try {
+    const token = getToken()
     const response = await fetch(`${BASE_URL}/api/products/${id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
         Accept: "application/json",
+        ...(token && { Authorization: `Bearer ${token}` }),
       },
       body: JSON.stringify(form),
     });

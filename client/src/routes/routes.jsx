@@ -6,6 +6,7 @@ import { categoryRoutes } from "../features/categories/routes.jsx";
 import HomePage from "../features/home/pages/HomePage.jsx";
 import { authRoutes } from "../features/auth/route.jsx";
 import ProtectedRoutes from "./ProtectedRoutes.jsx";
+import { dashboardRoutes } from "../features/dashboard/routes.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ export const router = createBrowserRouter([
       {
         path: "/a",
         element: <DashboardLayout />,
-        children: [...productRoutes, ...categoryRoutes],
+        children: [...dashboardRoutes, ...productRoutes, ...categoryRoutes],
       },
     ],
   },

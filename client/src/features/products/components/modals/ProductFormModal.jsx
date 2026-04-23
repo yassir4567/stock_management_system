@@ -117,7 +117,8 @@ function ProductFormModal({
       }
     } else if (mode === "add") {
       const response = await createProduct(form);
-      const data = response.data;
+      const data = response.data.data;
+
       setProducts((prev) => [...prev, data]);
     }
 

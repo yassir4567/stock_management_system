@@ -3,7 +3,7 @@ import { BASE_URL, getToken } from "../config";
 const logoutUser = async () => {
   const token = getToken();
   try {
-    const response = await fetch(`${BASE_URL}/logout`, {
+    const response = await fetch(`${BASE_URL}/api/logout`, {
       method: "POST",
       headers: {
         Accept: "application/json",

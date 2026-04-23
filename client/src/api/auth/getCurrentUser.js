@@ -3,12 +3,12 @@ import { BASE_URL, getToken } from "../config";
 const getCurrentUser = async (formData) => {
   try {
     const token = getToken();
-    const response = await fetch(`${BASE_URL}/me`, {
+    const response = await fetch(`${BASE_URL}/api/me`, {
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
-        Authorization: `Bearer ${token}`,
+        ...(token && { Authorization: `Bearer ${token}` }),
       },
     });
     const data = await response.json();
@@ -22,8 +22,8 @@ const getCurrentUser = async (formData) => {
 
     return {
       success: true,
-      message: data.message || "",
-      data: data,
+      message: data.message || "User retreived successfully",
+      user: data,
     };
   } catch (err) {
     return {

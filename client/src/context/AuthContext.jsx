@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
         return;
       }
 
-      setUser(result.data.user);
+      setUser(result.user);
       setIsLoading(false);
     };
     loadUser();

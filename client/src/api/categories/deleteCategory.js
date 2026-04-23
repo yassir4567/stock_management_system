@@ -1,12 +1,14 @@
-import { BASE_URL } from "../config";
+import { BASE_URL, getToken } from "../config";
 
 async function deleteCategory(id) {
   try {
+    const token = getToken() ;
     const response = await fetch(`${BASE_URL}/api/categories/${id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        ...(token && { Authorization: `Bearer ${token}` }),
       },
     });
     if (!response.ok) {

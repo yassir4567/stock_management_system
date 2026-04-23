@@ -2,11 +2,11 @@ import { BASE_URL } from "../config";
 
 const loginUser = async (formData) => {
   try {
-    const response = await fetch(`${BASE_URL}/login`, {
+    const response = await fetch(`${BASE_URL}/api/login`, {
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Accept: "application/json",
-        "Content-type": "application/json",
       },
       body: JSON.stringify(formData),
     });
