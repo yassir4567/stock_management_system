@@ -75,7 +75,6 @@ function CategoryFormModal({
     } else if (mode === "add") {
       const response = await createCategory(form);
       const data = response.data;
-      console.log(response);
       setCategories((prev) => [...prev, data]);
     }
 

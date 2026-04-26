@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import styles from "../../styles/SupplierModal.module.css";
 import { createSupplier } from "../../../../api/suppliers/createSupplier";
+import { sortObject } from "../../../../helpers/helpers";
+import { updateSupplier } from "../../../../api/suppliers/updateSupplier";
 
 function SupplierModal({
   mode,
@@ -9,8 +11,6 @@ function SupplierModal({
   onOpenModal,
   setSuppliers,
 }) {
-  const isViewMode = mode === "view";
-
   const [form, setForm] = useState({
     name: supplier?.name || "",
     email: supplier?.email || "",
@@ -23,6 +23,17 @@ function SupplierModal({
     phone: "",
     address: "",
   });
+
+  const [generalError, setGeneralError] = useState("");
+
+  const initSupplier = useMemo(() => {
+    return {
+      name: supplier?.name || "",
+      email: supplier?.email || "",
+      phone: supplier?.phone || "",
+      address: supplier?.address || "",
+    };
+  }, [supplier]);
 
   const modalTitle = mode === "add" ? "Add Supplier" : "Edit Supplier";
 
@@ -75,15 +86,18 @@ function SupplierModal({
       const data = result.data;
 
       setSuppliers((prev) => [...prev, data]);
-    }
-
-    if (mode === "edit" && supplier) {
+    } else if (mode === "edit") {
+      if (
+        JSON.stringify(sortObject(initSupplier)) ===
+        JSON.stringify(sortObject(form))
+      ) {
+        setGeneralError("Nothing change");
+        return;
+      }
+      const result = await updateSupplier(form, supplier.id);
+      const data = result.data;
       setSuppliers((prev) =>
-        prev.map((currentSupplier) =>
-          currentSupplier.id === supplier.id
-            ? { ...currentSupplier, ...form }
-            : currentSupplier,
-        ),
+        prev.map((sp) => (sp.id === supplier.id ? data : sp)),
       );
     }
 
@@ -115,14 +129,8 @@ function SupplierModal({
     <div className={styles.container} onClick={onCloseModal}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
-          <div>
-            <h1 className={styles.modalTitle}>{modalTitle}</h1>
-            <p className={styles.modalDescription}>
-              {isViewMode
-                ? "Review the selected supplier information."
-                : "These changes stay local and use fake data only."}
-            </p>
-          </div>
+          <h1 className={styles.modalTitle}>{modalTitle}</h1>
+          {generalError && <p className={styles.err}>{generalError}</p>}
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -137,8 +145,6 @@ function SupplierModal({
                   placeholder={field.placeholder}
                   value={form[field.name]}
                   onChange={handleChangeInputs}
-                  readOnly={isViewMode}
-                  className={isViewMode ? styles.readOnlyField : ""}
                 />
                 {errors[field.name] && (
                   <p className={styles.error}>{errors[field.name]}</p>
@@ -156,8 +162,6 @@ function SupplierModal({
                 value={form.address}
                 onChange={handleChangeInputs}
                 placeholder="Enter supplier address..."
-                readOnly={isViewMode}
-                className={isViewMode ? styles.readOnlyField : ""}
               ></textarea>
               {errors.address && (
                 <p className={styles.error}>{errors.address}</p>
@@ -167,40 +171,19 @@ function SupplierModal({
 
           <div className={styles.row}>
             <div className={styles.actionsBox}>
-              {isViewMode ? (
-                <>
-                  <button
-                    type="button"
-                    className={`${styles.action} ${styles.edit}`}
-                    onClick={() => onOpenModal("edit", supplier)}
-                  >
-                    Edit supplier
-                  </button>
-                  <button
-                    type="button"
-                    className={`${styles.action} ${styles.cancel}`}
-                    onClick={onCloseModal}
-                  >
-                    Close
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button
-                    type="submit"
-                    className={`${styles.action} ${styles.save}`}
-                  >
-                    {mode === "add" ? "Create supplier" : "Save changes"}
-                  </button>
-                  <button
-                    type="button"
-                    className={`${styles.action} ${styles.cancel}`}
-                    onClick={onCloseModal}
-                  >
-                    Cancel
-                  </button>
-                </>
-              )}
+              <button
+                type="submit"
+                className={`${styles.action} ${styles.save}`}
+              >
+                {mode === "add" ? "Create supplier" : "Save changes"}
+              </button>
+              <button
+                type="button"
+                className={`${styles.action} ${styles.cancel}`}
+                onClick={onCloseModal}
+              >
+                Cancel
+              </button>
             </div>
           </div>
         </form>
