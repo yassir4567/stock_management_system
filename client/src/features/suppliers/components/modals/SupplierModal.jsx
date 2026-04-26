@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "../../styles/SupplierModal.module.css";
+import { createSupplier } from "../../../../api/suppliers/createSupplier";
 
 function SupplierModal({
   mode,
@@ -54,7 +55,7 @@ function SupplierModal({
     return formErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formErrors = validateForm(form);
@@ -70,14 +71,10 @@ function SupplierModal({
     }
 
     if (mode === "add") {
-      setSuppliers((prev) => {
-        const nextId =
-          prev.reduce((maxId, currentSupplier) => {
-            return Math.max(maxId, currentSupplier.id);
-          }, 0) + 1;
+      const result = await createSupplier(form);
+      const data = result.data;
 
-        return [...prev, { id: nextId, ...form }];
-      });
+      setSuppliers((prev) => [...prev, data]);
     }
 
     if (mode === "edit" && supplier) {
