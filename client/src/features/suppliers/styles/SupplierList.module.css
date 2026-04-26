@@ -1,0 +1,44 @@
+.suppliersList {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  margin-bottom: 100px;
+}
+
+.section {
+  flex: 1;
+  border: 1px solid var(--color-success);
+  border-radius: 5px;
+  padding: 18px 15px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sectionTitle {
+  color: var(--color-success-dark);
+}
+
+.sectionSubtitle {
+  margin-top: 6px;
+  color: var(--color-gray);
+  font-size: var(--fs-sm);
+}
+
+.sectionCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  min-height: 34px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background-color: var(--color-success-bg);
+  color: var(--color-success-dark);
+}

@@ -1,0 +1,72 @@
+.header {
+  background-color: var(--color-light);
+  padding: 18px 25px;
+  border-radius: 15px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.title {
+  color: var(--color-success);
+  font-size: var(--fs-2xl);
+}
+
+.subTitle {
+  color: var(--color-gray);
+  margin-top: 5px;
+}
+
+.rightSide {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.searchInput {
+  position: relative;
+  width: 320px;
+  height: 50px;
+}
+
+.searchInput input {
+  background-color: var(--color-white);
+  border-radius: 40px;
+  padding-right: 42px;
+}
+
+.icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-success);
+}
+
+.addSupplierBtn {
+  background-color: var(--color-accent);
+  min-width: 170px;
+  height: 50px;
+  border-radius: 40px;
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-base);
+  transition: 0.2s ease;
+}
+
+.addSupplierBtn:hover {
+  background-color: var(--color-success);
+}
+
+.addSupplierBtn span {
+  white-space: nowrap;
+}

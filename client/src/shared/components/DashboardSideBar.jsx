@@ -75,7 +75,14 @@ function DashboardSideBar() {
             </NavLink>
           </li>
           <li className={styles.navbarItem}>
-            <NavLink className={styles.link}>
+            <NavLink
+              to="suppliers"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.link} ${styles.activeLink} `
+                  : `${styles.link}`
+              }
+            >
               <span className={styles.linkIcon}>
                 <BsCarFront className={styles.icon} />
               </span>

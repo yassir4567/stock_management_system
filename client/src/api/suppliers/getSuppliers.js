@@ -2,7 +2,7 @@ import { BASE_URL, getToken } from "../config";
 
 async function getSuppliers() {
   try {
-    const token = getToken()
+    const token = getToken();
     const response = await fetch(`${BASE_URL}/api/suppliers`, {
       method: "GET",
       headers: {
@@ -15,7 +15,7 @@ async function getSuppliers() {
     }
     const data = await response.json();
 
-    return data ;
+    return data;
   } catch (err) {
     console.log(err);
   }

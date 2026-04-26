@@ -7,6 +7,7 @@ import HomePage from "../features/home/pages/HomePage.jsx";
 import { authRoutes } from "../features/auth/route.jsx";
 import ProtectedRoutes from "./ProtectedRoutes.jsx";
 import { dashboardRoutes } from "../features/dashboard/routes.jsx";
+import { supplierRoutes } from "../features/suppliers/route.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,12 @@ export const router = createBrowserRouter([
       {
         path: "/a",
         element: <DashboardLayout />,
-        children: [...dashboardRoutes, ...productRoutes, ...categoryRoutes],
+        children: [
+          ...dashboardRoutes,
+          ...productRoutes,
+          ...categoryRoutes,
+          ...supplierRoutes,
+        ],
       },
     ],
   },
