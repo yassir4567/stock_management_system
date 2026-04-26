@@ -52,6 +52,19 @@ class SupplierController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $supplier = Supplier::findOrFail($id);
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string|email',
+            'phone' => 'required|string',
+            'address' => 'required|string'
+        ]);
+
+        $supplier->update($validated);
+
+        $supplier = Supplier::select('id', 'name', 'email', 'phone', 'address', 'created_at')->find($supplier->id);
+
+        return response()->json(['message' => "Supplier updated successfully", 'data' => $supplier]);
     }
 
     public function destroy(string $id)
