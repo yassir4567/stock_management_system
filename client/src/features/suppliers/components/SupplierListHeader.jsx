@@ -20,9 +20,9 @@ function SupplierListHeader({
         </div>
 
         <div className={styles.rightSide}>
-          <Input
+          <input
+            type="text"
             className={styles.searchInput}
-            icon={<IoSearch className={styles.icon} />}
             placeholder="Search by name ..."
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}

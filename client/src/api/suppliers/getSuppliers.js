@@ -1,9 +1,9 @@
 import { BASE_URL, getToken } from "../config";
 
-async function getSuppliers() {
+async function getSuppliers(search) {
   try {
     const token = getToken();
-    const response = await fetch(`${BASE_URL}/api/suppliers`, {
+    const response = await fetch(`${BASE_URL}/api/suppliers?search=${search}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
