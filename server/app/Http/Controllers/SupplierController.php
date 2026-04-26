@@ -8,15 +8,22 @@ use Illuminate\Http\Request;
 class SupplierController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        $suppliers = Supplier::all() ;
-        return response()->json(['data' => $suppliers] , 200) ;
+        $query = Supplier::query();
+
+        if ($request->filled('search')) {
+            $query->where('name', 'like', "%{$request->search}%");
+        }
+
+        $suppliers = $query->get();
+        return response()->json(['data' => $suppliers], 200);
     }
 
-    public function options() {
-        $suppliers = Supplier::select('id' , 'name')->get() ;
-        return response()->json(['data' => $suppliers] , 200) ;
+    public function options()
+    {
+        $suppliers = Supplier::select('id', 'name')->get();
+        return response()->json(['data' => $suppliers], 200);
     }
 
     public function store(Request $request)
