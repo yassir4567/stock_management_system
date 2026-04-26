@@ -56,7 +56,7 @@ class CategoryController extends Controller
         $category = Category::select('id' , 'name' , 'description' , 'created_at')
         ->withCount('products')->find($category->id) ;
 
-        return response()->json(['message' => "Product updated successfully" ,'data' => $category]) ;
+        return response()->json(['message' => "Category updated successfully" ,'data' => $category]) ;
     }
 
     public function delete(string $id)
