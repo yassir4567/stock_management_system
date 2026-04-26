@@ -30,4 +30,5 @@ Route::middleware('auth:sanctum')->group(function () {
     // * Suppliers Routes
     Route::get('/suppliers', [SupplierController::class, 'index']);
     Route::get('/suppliers/options', [SupplierController::class, 'options']);
+    Route::post('/suppliers', [SupplierController::class, 'store']);
 });

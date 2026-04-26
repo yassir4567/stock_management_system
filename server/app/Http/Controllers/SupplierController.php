@@ -28,7 +28,20 @@ class SupplierController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string|email',
+            'phone' => 'required|string',
+            'address' => 'required|string'
+        ]);
+
+        $supplier = Supplier::create($validated);
+
+        $supplier = Supplier::select('id', 'name', 'email', 'phone', 'address', 'created_at')->find($supplier->id);
+        return response()->json([
+            'message' => "supplier created successfully",
+            'data' => $supplier
+        ]);
     }
 
     public function show(string $id)
