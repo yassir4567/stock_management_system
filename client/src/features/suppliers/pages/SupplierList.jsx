@@ -4,6 +4,8 @@ import SupplierCards from "../components/cards/SupplierCards";
 import SupplierModal from "../components/modals/SupplierModal";
 import styles from "../styles/SupplierList.module.css";
 import { getSuppliers } from "../../../api/suppliers/getSuppliers";
+import DeleteAlert from "../../../shared/components/DeleteAlert";
+import { deleteSupplier } from "../../../api/suppliers/deleteSupplier";
 
 function SupplierList() {
   const [suppliers, setSuppliers] = useState([]);
@@ -13,6 +15,7 @@ function SupplierList() {
     mode: null,
     supplier: null,
   });
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
 
   useEffect(() => {
     const loadSuppliers = async () => {
@@ -30,8 +33,17 @@ function SupplierList() {
     setModalState({ open: false, mode: null, supplier: null });
   };
 
-  const handleDeleteSupplier = (supplierId) => {
+  const handleDeleteSupplier = async (supplierId) => {
     // *
+    const supplier = suppliers.find((sp) => sp.id === supplierId);
+    if (supplier.products_count > 0) {
+      setShowDeleteAlert(true);
+      return;
+    }
+    const result = await deleteSupplier(supplierId);
+    setSuppliers((prev) =>
+      prev.filter((supplier) => supplier.id !== supplierId),
+    );
   };
 
   useEffect(() => {
@@ -70,6 +82,10 @@ function SupplierList() {
           onOpenModal={handleOpenModal}
           setSuppliers={setSuppliers}
         />
+      )}
+
+      {showDeleteAlert && (
+        <DeleteAlert text="supplier" setShowDeleteAlert={setShowDeleteAlert} />
       )}
     </div>
   );

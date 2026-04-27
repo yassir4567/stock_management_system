@@ -4,7 +4,7 @@ import CategoryCard from "../components/cards/CategoryCard";
 import styles from "../styles/CategoriesList.module.css";
 import { getCategories } from "../../../api/categories/getCategories";
 import CategoryFormModal from "../components/modals/CategoryFormModal";
-import DeleteAlert from "../components/modals/DeleteAlert";
+import DeleteAlert from "../../../shared/components/DeleteAlert";
 
 function CategoriesList() {
   const [openModal, setOpenModal] = useState({
@@ -92,7 +92,7 @@ function CategoriesList() {
       )}
 
       {showDeleteAlert && (
-        <DeleteAlert setShowDeleteAlert={setShowDeleteAlert} />
+        <DeleteAlert text="category" setShowDeleteAlert={setShowDeleteAlert} />
       )}
     </div>
   );

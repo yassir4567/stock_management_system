@@ -32,4 +32,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/suppliers/options', [SupplierController::class, 'options']);
     Route::post('/suppliers', [SupplierController::class, 'store']);
     Route::put('/suppliers/{id}', [SupplierController::class, 'update']);
+    Route::delete('/suppliers/{id}', [SupplierController::class, 'delete']);
 });

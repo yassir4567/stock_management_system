@@ -19,8 +19,6 @@ const fields = [
   { label: "Address", key: "address", icon: HiOutlineMapPin },
 ];
 
-
-
 function SupplierCards({ suppliers = [], onOpenModal, onDeleteSupplier }) {
   const hasSuppliers = suppliers.length > 0;
 

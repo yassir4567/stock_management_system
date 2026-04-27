@@ -16,7 +16,7 @@ class SupplierController extends Controller
             $query->where('name', 'like', "%{$request->search}%");
         }
 
-        $suppliers = $query->get();
+        $suppliers = $query->withCount('products')->get();
         return response()->json(['data' => $suppliers], 200);
     }
 
@@ -67,8 +67,11 @@ class SupplierController extends Controller
         return response()->json(['message' => "Supplier updated successfully", 'data' => $supplier]);
     }
 
-    public function destroy(string $id)
+    public function delete(string $id)
     {
         //
+        $supplier = Supplier::findOrFail($id);
+        $supplier->delete($id);
+        return response()->json(['message' => 'Supplier deleted successfully']);
     }
 }
