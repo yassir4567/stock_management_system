@@ -1,4 +1,5 @@
 import { deleteCategory } from "../../../../api/categories/deleteCategory";
+import { getInitials } from "../../../../helpers/helpers";
 import styles from "../../styles/CategoryCard.module.css";
 
 function CategoryCard({
@@ -7,11 +8,6 @@ function CategoryCard({
   setShowDeleteAlert,
   setCategories,
 }) {
-  const getFirstLetter = (text) => {
-    const splitText = text.split(" ").slice(0, 2);
-    return splitText.reduce((acc, cur) => acc + cur[0], "");
-  };
-
   // * delete category if it doesn't contains any product
   const handleDeleteCategory = async (id) => {
     if (category.products_count > 0) {
@@ -30,9 +26,7 @@ function CategoryCard({
       <div className={styles.wrapper}>
         <div className={styles.cardHeader}>
           <div className={styles.categoryNameBox}>
-            <span className={styles.avatar}>
-              {getFirstLetter(category.name)}
-            </span>
+            <span className={styles.avatar}>{getInitials(category.name)}</span>
             <div className={styles.content}>
               <span className={styles.subTitle}>category</span>
               <h4 className={styles.categoryName}>{category.name}</h4>

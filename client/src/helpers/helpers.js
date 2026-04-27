@@ -7,4 +7,13 @@ const sortObject = (object) => {
     }, {});
 };
 
-export { sortObject };
+const getInitials = (name) => {
+  return name
+    .split(" ")
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+};
+
+export { sortObject, getInitials };

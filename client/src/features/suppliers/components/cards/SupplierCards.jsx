@@ -9,6 +9,7 @@ import {
 import { FiPhone } from "react-icons/fi";
 import { HiOutlineMapPin } from "react-icons/hi2";
 import { GoHash } from "react-icons/go";
+import { getInitials } from "../../../../helpers/helpers";
 
 const fields = [
   { label: "Id", key: "id", icon: GoHash, format: (value) => `#${value}` },
@@ -18,14 +19,7 @@ const fields = [
   { label: "Address", key: "address", icon: HiOutlineMapPin },
 ];
 
-const getInitials = (name) => {
-  return name
-    .split(" ")
-    .slice(0, 2)
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase();
-};
+
 
 function SupplierCards({ suppliers = [], onOpenModal, onDeleteSupplier }) {
   const hasSuppliers = suppliers.length > 0;
