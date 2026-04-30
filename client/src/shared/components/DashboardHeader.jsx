@@ -1,6 +1,13 @@
 import styles from "../styles/DashboardHeader.module.css";
+import { useAuth } from "../../context/AuthContext";
 
 function DashboardHeader() {
+  const { logout } = useAuth();
+
+  const handleLogout = async () => {
+    await logout();
+  };
+
   return (
     <header className={styles.dashboardHeader}>
       <div className={styles.identity}>
@@ -12,6 +19,12 @@ function DashboardHeader() {
           <h4 className={styles.fullName}>Full name</h4>
           <p className={styles.email}>yassir@gmail.com</p>
         </div>
+      </div>
+
+      <div className={styles.logoutBox}>
+        <button onClick={handleLogout} className={styles.logout}>
+          <span className={styles.logoutText}>Logout</span>
+        </button>
       </div>
     </header>
   );

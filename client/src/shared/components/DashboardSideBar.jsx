@@ -99,12 +99,6 @@ function DashboardSideBar() {
           </li>
         </ul>
       </nav>
-
-      <div className={styles.footer}>
-        <button onClick={handleLogout} className={styles.logout}>
-          <span className={styles.logoutText}>Logout</span>
-        </button>
-      </div>
     </aside>
   );
 }
