@@ -34,7 +34,7 @@
 .inputBox input,
 .textAreaBox textarea {
     height: 45px;
-    border-radius: 20px;
+    border-radius: 10px;
     padding-inline: 15px;
     border: 1px solid var(--color-accent);
     background-color: var(--color-white-light);
@@ -42,5 +42,43 @@
 
 .textAreaBox textarea {
     height: 80px;
-    padding: 8px 15px;
+    padding: 12px 15px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.actionBtn {
+    width: 140px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: var(--fs-base);
+    border-radius: 5px;
+    transition: .2s;
+}
+
+.addBtn {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.addBtn:hover {
+    background-color: var(--color-success);
+}
+
+.cancelBtn {
+    background-color: var(--color-primary-soft);
+    color: var(--color-white);
+}
+
+.cancelBtn:hover {
+    background-color: var(--color-danger);
+
 }

@@ -6,11 +6,15 @@ import StockActionForm from "../components/StockActionForm";
 function StockMovements() {
   const [openActionForm, setOpenActionForm] = useState({
     open: false,
-    type: "", // in or out
+    type: null, // in or out
   });
 
   const handleOpenForm = (type) => {
     setOpenActionForm({ open: true, type: type });
+  };
+
+  const handleCloseForm = (type) => {
+    setOpenActionForm({ open: false, type: null });
   };
 
   return (
@@ -23,6 +27,7 @@ function StockMovements() {
           <StockActionForm
             isOpen={openActionForm.open}
             type={openActionForm.type}
+            handleCloseForm={handleCloseForm}
           />
         </div>
       )}

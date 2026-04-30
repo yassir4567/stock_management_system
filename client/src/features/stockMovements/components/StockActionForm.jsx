@@ -4,7 +4,7 @@ import { getProducts } from "../../../api/products/getProducts";
 import { FaPlus } from "react-icons/fa6";
 import { TiMinus } from "react-icons/ti";
 
-function StockActionForm({ isOpen, type }) {
+function StockActionForm({ isOpen, type, handleCloseForm }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -39,8 +39,24 @@ function StockActionForm({ isOpen, type }) {
       </div>
 
       <div className={styles.textAreaBox}>
-        <label>Note</label>
+        <label>Note (optional)</label>
         <textarea name="note" placeholder="Enter note" />
+      </div>
+
+      <div className={styles.actions}>
+        <button
+          type="submit"
+          className={`${styles.actionBtn} ${styles.addBtn}`}
+        >
+          <FaPlus /> <span>Add action</span>
+        </button>
+        <button
+          type="reset"
+          className={`${styles.actionBtn} ${styles.cancelBtn}`}
+          onClick={handleCloseForm}
+        >
+          <span>cancel</span>
+        </button>
       </div>
     </form>
   );

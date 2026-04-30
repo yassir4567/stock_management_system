@@ -8,11 +8,9 @@ function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
 
-
   if (user) {
     return <Navigate to="/a/dashboard" replace />;
   }
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +25,7 @@ function Login() {
 
   return (
     <div className={styles.container}>
-      <form action="" onSubmit={handleSubmit}>
+      <form action="" className={styles.form} onSubmit={handleSubmit}>
         {error && <p className={styles.error}>{error}</p>}
         <div className={styles.input_box}>
           <label htmlFor="">Email</label>
