@@ -8,6 +8,7 @@ import { authRoutes } from "../features/auth/route.jsx";
 import ProtectedRoutes from "./ProtectedRoutes.jsx";
 import { dashboardRoutes } from "../features/dashboard/routes.jsx";
 import { supplierRoutes } from "../features/suppliers/route.jsx";
+import { stockMovementsRoutes } from "../features/stockMovements/route.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
           ...productRoutes,
           ...categoryRoutes,
           ...supplierRoutes,
+          ...stockMovementsRoutes,
         ],
       },
     ],

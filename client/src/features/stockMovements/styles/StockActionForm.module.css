@@ -1,0 +1,46 @@
+.form {
+    border: 1px solid var(--color-gray);
+    width: 100%;
+    padding: 20px 25px;
+    border-radius: 10px;
+}
+
+.formTitle {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.inputBox,
+.textAreaBox {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.inputBox label,
+.textAreaBox label {
+    margin-bottom: 13px;
+}
+
+.inputBox select,
+.inputBox input,
+.textAreaBox textarea {
+    height: 45px;
+    border-radius: 20px;
+    padding-inline: 15px;
+    border: 1px solid var(--color-accent);
+    background-color: var(--color-white-light);
+}
+
+.textAreaBox textarea {
+    height: 80px;
+    padding: 8px 15px;
+}

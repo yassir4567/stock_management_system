@@ -3,6 +3,8 @@ import { MdOutlineDashboard, MdOutlineCategory } from "react-icons/md";
 import { BsCart4 } from "react-icons/bs";
 import { BsCarFront } from "react-icons/bs";
 import { FiUsers } from "react-icons/fi";
+import { AiOutlineStock } from "react-icons/ai";
+import { GrTransaction } from "react-icons/gr";
 import { NavLink } from "react-router-dom";
 import { logoutUser } from "../../api/auth/logout";
 import { useAuth } from "../../context/AuthContext";
@@ -90,11 +92,18 @@ function DashboardSideBar() {
             </NavLink>
           </li>
           <li className={styles.navbarItem}>
-            <NavLink className={styles.link}>
+            <NavLink
+              to="stock-movements"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.link} ${styles.activeLink} `
+                  : `${styles.link}`
+              }
+            >
               <span className={styles.linkIcon}>
-                <FiUsers className={styles.icon} />
+                <AiOutlineStock className={styles.icon} />
               </span>
-              <span className={styles.linkText}>Users</span>
+              <span className={styles.linkText}>Stock movements</span>
             </NavLink>
           </li>
         </ul>

@@ -1,0 +1,39 @@
+
+.stockTitle {
+    font-size: var(--fs-lg);
+    font-weight: 500;
+}
+
+.stockActions {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.actionBtn {
+    width: 145px;
+    height: 42px;
+    border-radius: 20px;
+    font-size: var(--fs-base);
+}
+
+.inAction {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    transition: .2s;
+}
+
+.inAction:hover {
+    background-color: var(--color-success);
+}
+
+.outAction {
+    background-color: var(--color-info-bg);
+    color: var(--color-text);
+    transition: .2s;
+}
+
+.outAction:hover {
+    background-color: var(--color-azure);
+    color: var(--color-white);
+}
