@@ -22,6 +22,13 @@ const stockOut = async (formData) => {
       };
     }
 
+    if (!data.success) {
+      return {
+        success: false,
+        message: data.message || "Stock out failed",
+      };
+    }
+
     return {
       success: true,
       message: data.message || "Success",
