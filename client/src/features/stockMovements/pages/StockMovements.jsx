@@ -81,6 +81,7 @@ function StockMovements() {
             isOpen={openActionForm.open}
             type={openActionForm.type}
             handleCloseForm={handleCloseForm}
+            setStockMovements={setStockMovements}
           />
         </div>
       )}

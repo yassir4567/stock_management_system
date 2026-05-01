@@ -6,7 +6,7 @@ import { TiMinus } from "react-icons/ti";
 import { stockIn } from "../../../api/stockMovements/stockIn";
 import { stockOut } from "../../../api/stockMovements/stockOut";
 
-function StockActionForm({ isOpen, type, handleCloseForm }) {
+function StockActionForm({ isOpen, type, handleCloseForm, setStockMovements }) {
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState({
     product_id: "",
@@ -61,10 +61,14 @@ function StockActionForm({ isOpen, type, handleCloseForm }) {
 
     if (type === "in") {
       const result = await stockIn(form);
+      if (result.success) {
+        setStockMovements((prev) => [...prev, result.data]);
+      }
     } else if (type === "out") {
       const result = await stockOut(form);
-      console.log(result);
-
+      if (result.success) {
+        setStockMovements((prev) => [...prev, result.data]);
+      }
       if (result.success === false) {
         setGeneralError(result.message);
         return;
