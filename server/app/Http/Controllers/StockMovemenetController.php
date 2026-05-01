@@ -44,7 +44,8 @@ class StockMovemenetController extends Controller
                 'note' => $validate['note'] ?? null
             ]);
             $product->increment('quantity', $validate['quantity']);
-            return $movement;
+
+            return $movement->load('product:id,name,quantity');
         });
 
         return response()->json([
@@ -80,7 +81,7 @@ class StockMovemenetController extends Controller
             ]);
 
             $product->decrement('quantity', $validate['quantity']);
-            return $movement;
+            return $movement->load('product:id,name,quantity');
         });
 
         return response()->json([
