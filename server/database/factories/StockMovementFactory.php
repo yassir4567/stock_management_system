@@ -19,10 +19,9 @@ class StockMovementFactory extends Factory
     {
         return [
             //
-            'type' => fake()->randomElement(['in' , 'out']) ,
-            'quantity' => fake()->numberBetween(0 , 15) ,
-            'reason' => fake()->text() ,
-            'note' => fake()->text() ,
+            'type' => fake()->randomElement(['in', 'out']),
+            'quantity' => fake()->numberBetween(0, 15),
+            'note' => fake()->text(),
         ];
     }
 }
