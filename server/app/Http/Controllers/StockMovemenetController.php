@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\StockMovement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StockMovemenetController extends Controller
 {
@@ -23,5 +25,32 @@ class StockMovemenetController extends Controller
             'message' => 'Movements retrieved successfully',
             'data' => $movements
         ]);
+    }
+
+    public function stockIn(Request $request)
+    {
+        $validate = $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'quantity' => 'required|integer|min:1',
+            'note' => 'nullable|string'
+        ]);
+
+        $movement = DB::transaction(function () use ($validate) {
+            $product = Product::findOrFail($validate['product_id']);
+            $movement = StockMovement::create([
+                'product_id' => $product->id,
+                'type' => 'in',
+                'quantity' => $validate['quantity'],
+                'note' => $validate['note'] ?? null
+            ]);
+            $product->increment('quantity', $validate['quantity']);
+            return $movement;
+        });
+
+        return response()->json([
+            'success' => true , 
+            'message' => 'Stock added successfuly' ,
+            'data' => $movement
+        ]) ;
     }
 }

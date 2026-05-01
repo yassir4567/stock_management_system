@@ -37,4 +37,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // * stock movements 
     Route::get('/stock-movements', [StockMovemenetController::class, 'index']);
+    Route::post('/stock-in' , [StockMovemenetController::class , 'stockIn']) ;
 });
