@@ -21,7 +21,7 @@ class ProductFactory extends Factory
         return [
             //
             'supplier_id' => Supplier::inRandomOrder()->value('id'),
-            'name' => fake()->word(3, true),
+            'name' => fake()->name(),
             'description' => fake()->text(),
             'price' => fake()->randomFloat(2, 1, 1000),
             'quantity' => fake()->numberBetween(0, 100),

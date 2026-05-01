@@ -17,7 +17,7 @@ class ProductSeeder extends Seeder
         $categoryIds = Category::pluck('id');
 
         foreach ($categoryIds as $categoryId) {
-            $count = rand(3, 7);
+            $count = rand(1, 3);
 
             Product::factory()->count($count)->create([
                 'category_id' => $categoryId,
