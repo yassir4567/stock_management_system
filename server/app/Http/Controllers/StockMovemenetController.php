@@ -48,9 +48,45 @@ class StockMovemenetController extends Controller
         });
 
         return response()->json([
-            'success' => true , 
-            'message' => 'Stock added successfuly' ,
+            'success' => true,
+            'message' => 'Stock added successfuly',
             'data' => $movement
-        ]) ;
+        ]);
+    }
+
+    public function stockOut(Request $request)
+    {
+        $validate = $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'quantity' => 'required|integer|min:1',
+            'note' => 'nullable|string'
+        ]);
+
+        $product = Product::findOrFail($validate['product_id']);
+
+        if ($product->quantity < $validate['quantity']) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Not enough stock available'
+            ]);
+        }
+
+        $movement = DB::transaction(function () use ($validate, $product) {
+            $movement = StockMovement::create([
+                'product_id' => $product->id,
+                'type' => 'out',
+                'quantity' => $validate['quantity'],
+                'note' => $validate['note'] ?? null
+            ]);
+
+            $product->decrement('quantity', $validate['quantity']);
+            return $movement;
+        });
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Stock out successffuly',
+            'data' => $movement
+        ]);
     }
 }
