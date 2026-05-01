@@ -1,3 +1,75 @@
 .formBox {
     margin-top: 20px;
 }
+
+.movementsSection {
+    margin-top: 40px;
+    margin-bottom: 100px;
+    border: 1px solid var(--color-success);
+    border-radius: 5px;
+    padding: 18px 15px 24px;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.movementsTitle {
+    font-weight: 500;
+    font-size: var(--fs-lg);
+}
+
+.filterBox{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+.filterBox label {
+    background-color: var(--color-success-bg);
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 17px;
+    font-size: var(--fs-sm);
+    border-radius: 15px;
+}
+
+.filterBox select {
+    height: 50px;
+    width: 350px;
+    border-radius: 27px;
+    padding-inline: 10px;
+    border: 1px solid var(--color-accent);
+    background-color: var(--color-light-soft);
+    font-size: var(--fs-sm);
+}
+
+.tableSection {
+    margin-top: 22px;
+}
+
+@media (max-width: 768px) {
+    .sectionHeader {
+        align-items: stretch;
+    }
+
+    .filterBox {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filterBox label {
+        width: fit-content;
+    }
+
+    .filterBox select {
+        width: 100%;
+    }
+}

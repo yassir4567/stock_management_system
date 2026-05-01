@@ -1,0 +1,128 @@
+.headerIcon {
+  font-size: var(--fs-base);
+}
+
+.tableWrapper {
+  margin-top: 0;
+  overflow-x: auto;
+}
+
+.table {
+  min-width: 980px;
+}
+
+.noteCell {
+  min-width: 320px;
+}
+
+.dateCell {
+  min-width: 150px;
+}
+
+.noteWrapper {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.notePreview {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  max-width: 100%;
+}
+
+.notePreview span {
+  background-color: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  display: inline !important;
+}
+
+.noteText {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.moreText {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--color-success-dark);
+  opacity: 0.85;
+}
+
+.noteTooltip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  z-index: 20;
+  width: min(320px, 42vw);
+  padding: 12px 14px;
+  border-radius: 12px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  box-shadow: var(--bx-shadow-soft);
+  border: 1px solid var(--color-success-bg);
+  line-height: 1.5;
+  white-space: normal;
+  word-break: break-word;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+}
+
+.noteWrapper:hover .noteTooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.typeIn {
+  background-color: var(--color-success-bg) !important;
+  color: var(--color-success-dark);
+}
+
+.typeOut {
+  background-color: var(--color-primary-bg) !important;
+  color: var(--color-primary);
+}
+
+.typeNeutral {
+  background-color: var(--color-info-bg) !important;
+  color: var(--color-info);
+}
+
+.stateCell {
+  padding: 24px 16px !important;
+  text-align: center !important;
+  font-size: var(--fs-base);
+  border-radius: 15px;
+}
+
+.selectState,
+.loadingState,
+.emptyState {
+  color: var(--color-gray);
+}
+
+.selectState {
+  background-color: var(--color-white);
+}
+
+.loadingState {
+  background-color: var(--color-white);
+}
+
+.errorState {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.emptyState {
+  background-color: var(--color-white);
+  color: var(--color-gray);
+}
