@@ -20,11 +20,6 @@ const columns = [
   { label: "Date", icon: MdOutlineDateRange },
 ];
 
-const dateFormatter = new Intl.DateTimeFormat("en-CA", {
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-});
 
 function getTypeClass(type) {
   if (type === "in") {
@@ -36,14 +31,6 @@ function getTypeClass(type) {
   }
 
   return styles.typeNeutral;
-}
-
-function formatDate(dateValue) {
-  if (!dateValue) {
-    return "--";
-  }
-
-  return dateFormatter.format(new Date(dateValue));
 }
 
 function getNotePreview(noteValue) {
@@ -152,6 +139,8 @@ function StockMovementsTable({
             movements.map((movement) => {
               const notePreview = getNotePreview(movement.note);
 
+              const created_at = new Date(movement.created_at);
+              const dateFromatted = created_at.toISOString().split("T")[0];
               return (
                 <tr key={movement.id}>
                   <td>
@@ -207,7 +196,7 @@ function StockMovementsTable({
                   </td>
 
                   <td className={styles.dateCell}>
-                    <span>{formatDate(movement.created_at)}</span>
+                    <span>{dateFromatted}</span>
                   </td>
                 </tr>
               );
