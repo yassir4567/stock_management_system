@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import StockAction from "../components/StockAction";
 import styles from "../styles/StockMovements.module.css";
 import StockActionForm from "../components/StockActionForm";
 import StockMovementsTable from "../components/tables/StockMovementsTable";
 import { getStockMovements } from "../../../api/stockMovements/getStockMovements";
 import { getProducts } from "../../../api/products/getProducts";
+import { useSearchParams } from "react-router-dom";
 
 function StockMovements() {
   const [openActionForm, setOpenActionForm] = useState({
@@ -14,8 +15,11 @@ function StockMovements() {
   const [stockMovements, setStockMovements] = useState([]);
   const [isLoadingMovements, setIsLoadingMovements] = useState(false);
   const [movementsError, setMovementsError] = useState("");
-  const [selectedProduct, setSelectedProduct] = useState("");
   const [products, setProducts] = useState([]);
+
+  const [params, setParams] = useSearchParams();
+
+  const product_id = params.get("product_id") || "";
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -29,7 +33,7 @@ function StockMovements() {
     let ignore = false;
 
     const loadStockMovements = async () => {
-      if (!selectedProduct) {
+      if (!product_id) {
         setStockMovements([]);
         setMovementsError("");
         setIsLoadingMovements(false);
@@ -39,7 +43,7 @@ function StockMovements() {
       setIsLoadingMovements(true);
       setMovementsError("");
 
-      const result = await getStockMovements(selectedProduct);
+      const result = await getStockMovements(product_id);
 
       if (ignore) {
         return;
@@ -60,7 +64,7 @@ function StockMovements() {
     return () => {
       ignore = true;
     };
-  }, [selectedProduct]);
+  }, [product_id]);
 
   const handleOpenForm = (type) => {
     setOpenActionForm({ open: true, type: type });
@@ -93,8 +97,8 @@ function StockMovements() {
             <label>Select product</label>
             <select
               name="product_id"
-              value={selectedProduct}
-              onChange={(e) => setSelectedProduct(e.target.value)}
+              value={product_id}
+              onChange={(e) => setParams({ product_id: e.target.value })}
             >
               <option value="">Select product</option>
               {products.map((product) => (
@@ -109,7 +113,7 @@ function StockMovements() {
         <div className={styles.tableSection}>
           <StockMovementsTable
             movements={stockMovements}
-            selectedProduct={selectedProduct}
+            selectedProduct={product_id}
             isLoading={isLoadingMovements}
             error={movementsError}
           />
