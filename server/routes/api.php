@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StockMovemenetController;
 use App\Http\Controllers\SupplierController;
@@ -39,4 +40,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/stock-movements', [StockMovemenetController::class, 'index']);
     Route::post('/stock-in' , [StockMovemenetController::class , 'stockIn']) ;
     Route::post('/stock-out' , [StockMovemenetController::class , 'stockOut']) ;
+
+    // * Dashboard 
+    Route::get('/dashboard-stats' , [DashboardController::class,'stats']);
 });
