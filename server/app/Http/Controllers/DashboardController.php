@@ -33,4 +33,17 @@ class DashboardController extends Controller
             'data' => $stats
         ]);
     }
+
+    public function productsByCategory(Request $request)
+    {
+        $categories = Category::select('id', 'name')
+            ->withCount('products')->get();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Products by category retrieved successfully',
+            'data' => $categories
+        ]);
+    }
+
 }

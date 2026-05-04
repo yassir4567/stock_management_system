@@ -29,18 +29,21 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/categories/{id}', [CategoryController::class, 'update']);
     Route::delete('/categories/{id}', [CategoryController::class, 'delete']);
 
+    
+    
     // * Suppliers Routes
     Route::get('/suppliers', [SupplierController::class, 'index']);
     Route::get('/suppliers/options', [SupplierController::class, 'options']);
     Route::post('/suppliers', [SupplierController::class, 'store']);
     Route::put('/suppliers/{id}', [SupplierController::class, 'update']);
     Route::delete('/suppliers/{id}', [SupplierController::class, 'delete']);
-
+    
     // * stock movements 
     Route::get('/stock-movements', [StockMovemenetController::class, 'index']);
     Route::post('/stock-in' , [StockMovemenetController::class , 'stockIn']) ;
     Route::post('/stock-out' , [StockMovemenetController::class , 'stockOut']) ;
-
+    
     // * Dashboard 
     Route::get('/dashboard-stats' , [DashboardController::class,'stats']);
+    Route::get('/products-by-category', [DashboardController::class,'productsByCategory']);
 });

@@ -7,6 +7,8 @@ import { LuUsers } from "react-icons/lu";
 import { CgArrowBottomRight } from "react-icons/cg";
 import { IoWarningOutline } from "react-icons/io5";
 import DashboardStateCard from "../components/DashboardStateCard";
+import { getProductsByCategory } from "../../../api/dashboard/getProductsByCategory";
+import ProductsByCategoryChart from "../components/ProductsByCategoryChart";
 
 function Dashboard() {
   const [stats, setStats] = useState([]);
@@ -14,8 +16,9 @@ function Dashboard() {
   useEffect(() => {
     const loadDashboardStats = async () => {
       const result = await getDashboardStats();
-      setStats(result.data)
+      setStats(result.data);
     };
+
     loadDashboardStats();
   }, []);
 
@@ -46,18 +49,25 @@ function Dashboard() {
       total: stats?.total_products_out_of_stock || 0,
     },
   ];
-  
 
   return (
-    <div>
+    <div className={styles.dashboard}>
       <div className={styles.cards}>
         {stats_cards?.map((state) => (
           <DashboardStateCard
+            key={state.label}
             label={state.label}
             icon={state.icon}
             total={state.total}
           />
         ))}
+      </div>
+      <div className={styles.row}>
+        <div className={styles.chart}>
+          <ProductsByCategoryChart />
+        </div>
+
+        <div className={styles.chart}></div>
       </div>
     </div>
   );
