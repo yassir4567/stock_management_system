@@ -1,6 +1,8 @@
+import Dashboard from "./pages/Dashboard";
+
 export const dashboardRoutes = [
   {
     path: "dashboard",
-    children: [{ index: true, element: <div>dashboard</div> }],
+    children: [{ index: true, element: <Dashboard />}],
   },
 ];

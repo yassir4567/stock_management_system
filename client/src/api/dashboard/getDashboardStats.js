@@ -3,7 +3,7 @@ import { BASE_URL, getToken } from "../config";
 export const getDashboardStats = async () => {
   try {
     const token = getToken();
-    const response = await fetch(`${BASE_URL}/api`, {
+    const response = await fetch(`${BASE_URL}/api/dashboard-stats`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -13,7 +13,7 @@ export const getDashboardStats = async () => {
 
     const data = await response.json();
 
-    if (!response.ok || data.success) {
+    if (!response.ok || !data.success) {
       return {
         success: false,
         message: data.message || "Failed",
