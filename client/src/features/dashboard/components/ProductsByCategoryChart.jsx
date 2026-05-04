@@ -58,7 +58,6 @@ function ProductsByCategoryChart() {
     const loadProductsByCategory = async () => {
       const result = await getProductsByCategory();
       setProductsByCategory(result.data);
-      console.log(result.data);
     };
 
     loadProductsByCategory();

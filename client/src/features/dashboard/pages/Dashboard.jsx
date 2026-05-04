@@ -9,6 +9,7 @@ import { IoWarningOutline } from "react-icons/io5";
 import DashboardStateCard from "../components/DashboardStateCard";
 import { getProductsByCategory } from "../../../api/dashboard/getProductsByCategory";
 import ProductsByCategoryChart from "../components/ProductsByCategoryChart";
+import StockStatusChart from "../components/StockStatusChart";
 
 function Dashboard() {
   const [stats, setStats] = useState([]);
@@ -67,7 +68,9 @@ function Dashboard() {
           <ProductsByCategoryChart />
         </div>
 
-        <div className={styles.chart}></div>
+        <div className={styles.chart}>
+          <StockStatusChart />
+        </div>
       </div>
     </div>
   );
