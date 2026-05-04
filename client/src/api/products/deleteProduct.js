@@ -13,12 +13,12 @@ const deleteProduct = async (id) => {
       },
     });
 
+    const data = await response.json();
     if (!response.ok) {
       console.log("error");
       return;
     }
 
-    const data = await response.json();
     return data;
   } catch (err) {
     console.log(err);

@@ -10,6 +10,8 @@ import { SlActionRedo } from "react-icons/sl";
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBack2Line } from "react-icons/ri";
 import { deleteProduct } from "../../../../api/products/deleteProduct";
+import { useState } from "react";
+import DeleteProductAlert from "../modals/DeleteProductAlert";
 
 const columns = [
   { label: "Id", icon: GoHash },
@@ -47,10 +49,36 @@ const getStockStatus = (quantity) => {
 function ProductsListTable({ products = [], onOpenModal, setProducts }) {
   const hasProducts = products.length > 0;
 
+  const [showAlert, setShowAlert] = useState({
+    show: false,
+    productId: null,
+  });
+
   // * handle delete product
   const handleDeleteProduct = async (id) => {
+    const curProduct = products.find((product) => product.id === id);
+
+    if (!curProduct) return;
+
+    if (curProduct.movements_count > 0) {
+      setShowAlert({ show: true, productId: curProduct.id });
+      return;
+    }
+
+    await deleteProductFinalAction(id);
+  };
+
+  const deleteProductFinalAction = async (id) => {
     await deleteProduct(id);
+    if (!result.success) {
+      console.error(result.message);
+      return;
+    }
     setProducts((prev) => prev.filter((p) => p.id !== id));
+  };
+
+  const onClose = () => {
+    setShowAlert({ show: false, productId: null });
   };
 
   return (
@@ -75,6 +103,7 @@ function ProductsListTable({ products = [], onOpenModal, setProducts }) {
               const stockStatus = getStockStatus(product.quantity);
               const category_name = product.category?.name;
               const supplier_name = product.supplier?.name;
+
               return (
                 <tr key={product.id}>
                   <td>
@@ -151,6 +180,14 @@ function ProductsListTable({ products = [], onOpenModal, setProducts }) {
           )}
         </tbody>
       </table>
+
+      {showAlert.show && (
+        <DeleteProductAlert
+          onClose={onClose}
+          productId={showAlert.productId}
+          deleteProduct={deleteProductFinalAction}
+        />
+      )}
     </div>
   );
 }
