@@ -69,11 +69,7 @@ function ProductsListTable({ products = [], onOpenModal, setProducts }) {
   };
 
   const deleteProductFinalAction = async (id) => {
-    await deleteProduct(id);
-    if (!result.success) {
-      console.error(result.message);
-      return;
-    }
+    const result = await deleteProduct(id);
     setProducts((prev) => prev.filter((p) => p.id !== id));
   };
 

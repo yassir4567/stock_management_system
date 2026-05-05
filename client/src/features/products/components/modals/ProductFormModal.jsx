@@ -69,9 +69,9 @@ function ProductFormModal({
       formErrors.quantity = "Quantity must be greater than 0";
     }
 
-    if (!data.description) {
-      formErrors.description = "Description required";
-    }
+    // if (!data.description) {
+    //   formErrors.description = "Description required";
+    // }
 
     if (!data.supplier_id) {
       formErrors.supplier_id = "Supplier required";
@@ -93,7 +93,7 @@ function ProductFormModal({
         name: validateFormData?.name || "",
         price: validateFormData?.price || "",
         quantity: validateFormData?.quantity || "",
-        description: validateFormData?.description || "",
+        // description: validateFormData?.description || "",
         category_id: validateFormData?.category_id || "",
         supplier_id: validateFormData?.supplier_id || "",
       });
@@ -117,6 +117,7 @@ function ProductFormModal({
       }
     } else if (mode === "add") {
       const response = await createProduct(form);
+      
       const data = response.data.data;
 
       setProducts((prev) => [...prev, data]);
@@ -226,7 +227,7 @@ function ProductFormModal({
                 name="description"
                 value={form.description}
                 onChange={handleChangeInputs}
-                placeholder="Enter product description"
+                placeholder="Enter product description (optionel)"
               ></textarea>
               {errors["description"] && (
                 <p className={styles.error}>{errors["description"]}</p>

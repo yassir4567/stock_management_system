@@ -3,6 +3,12 @@ import { BASE_URL, getToken } from "../config";
 const createProduct = async (form) => {
   try {
     const token = getToken();
+
+    const cleanedObject = Object.fromEntries(
+      Object.entries(form).filter(([_, value]) => value !== ""),
+    );
+    console.log(cleanedObject);
+
     const response = await fetch(`${BASE_URL}/api/products`, {
       method: "POST",
       headers: {

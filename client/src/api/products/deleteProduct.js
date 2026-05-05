@@ -19,6 +19,7 @@ const deleteProduct = async (id) => {
       return;
     }
 
+    
     return data;
   } catch (err) {
     console.log(err);

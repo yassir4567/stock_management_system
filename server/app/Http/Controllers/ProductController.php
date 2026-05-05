@@ -34,7 +34,7 @@ class ProductController extends Controller
             'name' => 'required|string',
             'price' => 'required|numeric|min:0',
             'quantity' => 'required|integer|min:0',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
             'category_id' => 'required|exists:categories,id',
             'supplier_id' => 'required|exists:suppliers,id',
         ]);
