@@ -51,6 +51,7 @@
   font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--color-success-dark);
+  text-transform: capitalize;
 }
 
 .email {

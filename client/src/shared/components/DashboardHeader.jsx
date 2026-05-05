@@ -2,7 +2,7 @@ import styles from "../styles/DashboardHeader.module.css";
 import { useAuth } from "../../context/AuthContext";
 
 function DashboardHeader() {
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
 
   const handleLogout = async () => {
     await logout();
@@ -16,8 +16,10 @@ function DashboardHeader() {
           <span className={styles.dashboardOverViewTitle}>
             Dashboard overview
           </span>
-          <h4 className={styles.fullName}>Full name</h4>
-          <p className={styles.email}>yassir@gmail.com</p>
+          <h4 className={styles.fullName}>
+            {user.firstName} {user.lastName}
+          </h4>
+          <p className={styles.email}>{user.email}</p>
         </div>
       </div>
 
