@@ -2,7 +2,10 @@ import { BASE_URL, getToken } from "../config";
 
 const updateProduct = async (form, id) => {
   try {
-    const token = getToken()
+    const token = getToken();
+
+    
+
     const response = await fetch(`${BASE_URL}/api/products/${id}`, {
       method: "PUT",
       headers: {

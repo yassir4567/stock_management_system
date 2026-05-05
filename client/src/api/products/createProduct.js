@@ -7,7 +7,6 @@ const createProduct = async (form) => {
     const cleanedObject = Object.fromEntries(
       Object.entries(form).filter(([_, value]) => value !== ""),
     );
-    console.log(cleanedObject);
 
     const response = await fetch(`${BASE_URL}/api/products`, {
       method: "POST",
@@ -16,7 +15,7 @@ const createProduct = async (form) => {
         Accept: "application/json",
         ...(token && { Authorization: `Bearer ${token}` }),
       },
-      body: JSON.stringify(form),
+      body: JSON.stringify(cleanedObject),
     });
 
     const data = await response.json();
