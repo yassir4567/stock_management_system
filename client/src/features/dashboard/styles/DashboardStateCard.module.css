@@ -3,8 +3,9 @@
     width: 100%;
     border-radius: 15px;
     padding: 20px 15px;
-    background: var(--color-light-soft);
-    border: 1px solid var(--color-accent);
+    background: #b8f2ce;
+    background: linear-gradient(320deg, rgb(189, 226, 203) 31%, rgb(184, 250, 208) 68%);
+    box-shadow: 0 10px 22px rgba(222, 222, 222, 0.466);
 }
 
 .iconBox {
@@ -21,17 +22,22 @@
 
 .iconBox .icon {
     color: var(--color-white);
-    font-size: var(--fs-lg);
+    font-size: var(--fs-xl);
 }
 
 .total {
-    font-size: var(--fs-4xl);
+    font-size: var(--fs-5xl);
     margin-left: 10px;
     font-weight: 500;
-    color: var(--color-black);
+    color: var(--color-success-dark);
 }
 
 .label {
-    font-size: var(--fs-md);
+    font-size: var(--fs-base);
     text-transform: capitalize;
+    background-color: var(--color-light);
+    border-radius: 10px;
+    width: fit-content;
+    float: right;
+    padding: 5px 15px;
 }

@@ -17,8 +17,16 @@ function StockStatusChart() {
     loadStockStatus();
   }, []);
 
+  const labelsMap = {
+    out: "Out of Stock",
+    low: "Low Stock",
+    in: "In Stock",
+  };
+
   const data = {
-    labels: Object.keys(stockStatus ?? {}).map((status) => status + " stock"),
+    labels: Object.keys(stockStatus ?? {}).map(
+      (status) => labelsMap[status] ?? status,
+    ),
     datasets: [
       {
         label: "Products",
@@ -29,7 +37,7 @@ function StockStatusChart() {
   };
   const options = {
     responsive: true,
-    maintainAspectRatio: false,
+    // maintainAspectRatio: false,
     cutout: "60%",
     plugins: {
       legend: {

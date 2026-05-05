@@ -36,20 +36,24 @@ function ProductsByCategoryChart() {
     ],
   };
   const options = {
-    maintainAspectRatio: false,
+    // maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
         text: "Products by Category",
+        font: {
+          size: 24, // حجم العنوان
+          weight: "bold", // optional
+        },
       },
     },
     scales: {
       y: {
         beginAtZero: true,
-        ticks : {
-            stepSize : 1 , 
-            precision : 0
-        }
+        ticks: {
+          stepSize: 1,
+          precision: 0,
+        },
       },
     },
   };
