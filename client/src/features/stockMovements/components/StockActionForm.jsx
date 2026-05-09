@@ -62,12 +62,24 @@ function StockActionForm({ isOpen, type, handleCloseForm, setStockMovements }) {
     if (type === "in") {
       const result = await stockIn(form);
       if (result.success) {
-        setStockMovements((prev) => [...prev, result.data]);
+        setStockMovements((prev) => {
+          const updatePrev = prev.map((p) => ({
+            ...p,
+            product: { ...p.product, quantity: result.data.product.quantity },
+          }));
+          return [...updatePrev, result.data];
+        });
       }
     } else if (type === "out") {
       const result = await stockOut(form);
       if (result.success) {
-        setStockMovements((prev) => [...prev, result.data]);
+        setStockMovements((prev) => {
+          const updatePrev = prev.map((p) => ({
+            ...p,
+            product: { ...p.product, quantity: result.data.product.quantity },
+          }));
+          return [...updatePrev, result.data];
+        });
       }
       if (result.success === false) {
         setGeneralError(result.message);
