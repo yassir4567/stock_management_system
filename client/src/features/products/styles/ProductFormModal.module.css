@@ -11,7 +11,7 @@
 }
 
 .modal {
-  width: min(700px, 100%);
+  width: min(900px, 100%);
   margin: auto;
   background-color: var(--color-white);
   padding: 30px 35px;
@@ -100,7 +100,7 @@
 
 .textareaBox textarea {
   padding: 10px;
-  height: 60px;
+  height: 120px;
 }
 
 .actionsBox {

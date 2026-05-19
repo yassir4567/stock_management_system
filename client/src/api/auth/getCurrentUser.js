@@ -1,6 +1,6 @@
 import { BASE_URL, getToken } from "../config";
 
-const getCurrentUser = async (formData) => {
+const getCurrentUser = async () => {
   try {
     const token = getToken();
     const response = await fetch(`${BASE_URL}/api/me`, {

@@ -140,12 +140,6 @@ function ProductsListTable({ products = [], onOpenModal, setProducts }) {
 
                   <td className={styles.cellActions}>
                     <div className={styles.actions}>
-                      <button
-                        type="button"
-                        className={`${styles.actionBtn} ${styles.detail}`}
-                      >
-                        <FaRegEye />
-                      </button>
 
                       <button
                         type="button"

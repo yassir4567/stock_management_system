@@ -7,8 +7,7 @@
 .table {
   flex: 1;
   margin-top: 35px;
-  border: 1px solid var(--color-success);
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 18px 15px;
 }
 
@@ -22,8 +21,10 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  width: 120px;
-  height: 30px;
+  min-width: 150px;
+  height: 40px;
+  padding-inline: 25px;
+  font-size: var(--fs-md);
   background-color: var(--color-accent);
   color: var(--color-white);
   display: flex;
@@ -33,4 +34,10 @@
 }
 .addProductBtn:hover {
   background-color: var(--color-success);
+}
+
+
+.tableTitle {
+  font-size: var(--fs-xl);
+  color: var(--color-success-dark);
 }
