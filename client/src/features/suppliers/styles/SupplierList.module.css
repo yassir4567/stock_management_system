@@ -7,7 +7,6 @@
 
 .section {
   flex: 1;
-  border: 1px solid var(--color-success);
   border-radius: 5px;
   padding: 18px 15px;
 }
@@ -20,6 +19,7 @@
 }
 
 .sectionTitle {
+  font-size: var(--fs-xl);
   color: var(--color-success-dark);
 }
 

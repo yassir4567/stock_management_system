@@ -5,7 +5,6 @@
 .movementsSection {
     margin-top: 40px;
     margin-bottom: 100px;
-    border: 1px solid var(--color-success);
     border-radius: 5px;
     padding: 18px 15px 24px;
 }
@@ -19,11 +18,11 @@
 }
 
 .movementsTitle {
-    font-weight: 500;
-    font-size: var(--fs-lg);
+    font-size: var(--fs-xl);
+    color: var(--color-success-dark);
 }
 
-.filterBox{
+.filterBox {
     display: flex;
     align-items: center;
     gap: 10px;
