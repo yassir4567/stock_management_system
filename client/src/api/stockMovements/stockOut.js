@@ -18,26 +18,26 @@ const stockOut = async (formData) => {
     if (!response.ok) {
       return {
         success: false,
-        message: data.message || "Stock out failed",
+        message: data.message || "La sortie de stock a échoué",
       };
     }
 
     if (!data.success) {
       return {
         success: false,
-        message: data.message || "Stock out failed",
+        message: data.message || "La sortie de stock a échoué",
       };
     }
 
     return {
       success: true,
-      message: data.message || "Success",
+      message: data.message || "Succès",
       data: data.data,
     };
   } catch (err) {
     return {
       success: false,
-      message: err.message || "network error",
+      message: err.message || "Erreur réseau",
       errors: err,
     };
   }

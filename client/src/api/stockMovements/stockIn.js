@@ -18,19 +18,19 @@ const stockIn = async (formData) => {
     if (!response.ok) {
       return {
         success: false,
-        message: data.message || "Stock in failed",
+        message: data.message || "L'entrée de stock a échoué",
       };
     }
 
     return {
       success: true,
-      message: data.message || "Success",
+      message: data.message || "Succès",
       data: data.data,
     };
   } catch (err) {
     return {
       success: false,
-      message: err.message || "network error",
+      message: err.message || "Erreur réseau",
       errors: err,
     };
   }

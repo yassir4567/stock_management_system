@@ -19,17 +19,17 @@ function DashboardSideBar() {
   return (
     <aside className={styles.sideBar}>
       <div className={styles.header}>
-        <span className={styles.titleEyebrow}>Workspace</span>
+        <span className={styles.titleEyebrow}>Espace de travail</span>
         <div className={styles.titleBlock}>
-          <h2 className={styles.title}>Admin Dashboard</h2>
+          <h2 className={styles.title}>Tableau de bord admin</h2>
           <p className={styles.subtitle}>
-            Manage stock, people, and daily operations.
+            Gérez le stock, les personnes et les opérations quotidiennes.
           </p>
         </div>
       </div>
 
       <nav className={styles.navbar}>
-        <span className={styles.sectionLabel}>Main menu</span>
+        <span className={styles.sectionLabel}>Menu principal</span>
         <ul className={styles.navbarItems}>
           <li className={styles.navbarItem}>
             <NavLink
@@ -43,7 +43,7 @@ function DashboardSideBar() {
               <span className={styles.linkIcon}>
                 <MdOutlineDashboard className={styles.icon} />
               </span>
-              <span className={styles.linkText}>Dashboard</span>
+              <span className={styles.linkText}>Tableau de bord</span>
             </NavLink>
           </li>
           <li className={styles.navbarItem}>
@@ -58,7 +58,7 @@ function DashboardSideBar() {
               <span className={styles.linkIcon}>
                 <BsCart4 className={styles.icon} />
               </span>
-              <span className={styles.linkText}>Products</span>
+              <span className={styles.linkText}>Produits</span>
             </NavLink>
           </li>
           <li className={styles.navbarItem}>
@@ -73,7 +73,7 @@ function DashboardSideBar() {
               <span className={styles.linkIcon}>
                 <MdOutlineCategory className={styles.icon} />
               </span>
-              <span className={styles.linkText}>Categories</span>
+              <span className={styles.linkText}>Catégories</span>
             </NavLink>
           </li>
           <li className={styles.navbarItem}>
@@ -88,7 +88,7 @@ function DashboardSideBar() {
               <span className={styles.linkIcon}>
                 <BsCarFront className={styles.icon} />
               </span>
-              <span className={styles.linkText}>Suppliers</span>
+              <span className={styles.linkText}>Fournisseurs</span>
             </NavLink>
           </li>
           <li className={styles.navbarItem}>
@@ -103,7 +103,7 @@ function DashboardSideBar() {
               <span className={styles.linkIcon}>
                 <AiOutlineStock className={styles.icon} />
               </span>
-              <span className={styles.linkText}>Stock movements</span>
+              <span className={styles.linkText}>Mouvements de stock</span>
             </NavLink>
           </li>
         </ul>

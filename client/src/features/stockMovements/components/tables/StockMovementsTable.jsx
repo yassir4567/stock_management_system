@@ -11,11 +11,11 @@ import productTableStyles from "../../../products/styles/ProductsListTable.modul
 import styles from "../../styles/StockMovementsTable.module.css";
 
 const columns = [
-  { label: "Id", icon: GoHash },
-  { label: "Product Name", icon: MdOutlineDriveFileRenameOutline },
+  { label: "ID", icon: GoHash },
+  { label: "Nom du produit", icon: MdOutlineDriveFileRenameOutline },
   { label: "Type", icon: SlActionRedo },
-  { label: "Quantity", icon: AiOutlineStock },
-  { label: "Current Quantity", icon: AiOutlineStock },
+  { label: "Quantité", icon: AiOutlineStock },
+  { label: "Quantité actuelle", icon: AiOutlineStock },
   { label: "Note", icon: MdOutlineNotes },
   { label: "Date", icon: MdOutlineDateRange },
 ];
@@ -33,12 +33,24 @@ function getTypeClass(type) {
   return styles.typeNeutral;
 }
 
+function getTypeLabel(type) {
+  if (type === "in") {
+    return "Entrée";
+  }
+
+  if (type === "out") {
+    return "Sortie";
+  }
+
+  return type ?? "--";
+}
+
 function getNotePreview(noteValue) {
   const fullNote = noteValue?.trim();
 
   if (!fullNote) {
     return {
-      preview: "No note",
+      preview: "Aucune note",
       fullNote: "",
       hasMore: false,
     };
@@ -65,14 +77,14 @@ function getFeedbackState(selectedProduct, isLoading, error, hasMovements) {
   if (!selectedProduct) {
     return {
       className: styles.selectState,
-      message: "Select product first",
+      message: "Sélectionnez d'abord un produit",
     };
   }
 
   if (isLoading) {
     return {
       className: styles.loadingState,
-      message: "Loading movements...",
+      message: "Chargement des mouvements...",
     };
   }
 
@@ -86,7 +98,7 @@ function getFeedbackState(selectedProduct, isLoading, error, hasMovements) {
   if (!hasMovements) {
     return {
       className: styles.emptyState,
-      message: "No movements",
+      message: "Aucun mouvement",
     };
   }
 
@@ -161,7 +173,7 @@ function StockMovementsTable({
                         movement.type,
                       )}`}
                     >
-                      {movement.type ?? "--"}
+                      {getTypeLabel(movement.type)}
                     </span>
                   </td>
 
@@ -183,7 +195,7 @@ function StockMovementsTable({
                         </span>
 
                         {notePreview.hasMore ? (
-                          <span className={styles.moreText}>more...</span>
+                          <span className={styles.moreText}>plus...</span>
                         ) : null}
                       </span>
 

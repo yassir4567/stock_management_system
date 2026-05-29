@@ -26,7 +26,7 @@ const logoutUser = async () => {
   } catch (err) {
     return {
       success: false,
-      message: "Network error",
+      message: "Erreur réseau",
     };
   }
 };

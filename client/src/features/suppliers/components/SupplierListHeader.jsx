@@ -13,9 +13,10 @@ function SupplierListHeader({
     <div className={styles.header}>
       <div className={styles.wrapper}>
         <div className={styles.leftSide}>
-          <h1 className={styles.title}>Suppliers</h1>
+          <h1 className={styles.title}>Fournisseurs</h1>
           <p className={styles.subTitle}>
-            {totalSuppliers} total supplier{totalSuppliers === 1 ? "" : "s"}
+            {totalSuppliers} fournisseur{totalSuppliers === 1 ? "" : "s"} au
+            total
           </p>
         </div>
 
@@ -23,7 +24,7 @@ function SupplierListHeader({
           <input
             type="text"
             className={styles.searchInput}
-            placeholder="Search by name ..."
+            placeholder="Rechercher par nom ..."
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
           />
@@ -33,7 +34,7 @@ function SupplierListHeader({
             className={styles.addSupplierBtn}
           >
             <GoPlus />
-            <span>Add supplier</span>
+            <span>Ajouter un fournisseur</span>
           </button>
         </div>
       </div>

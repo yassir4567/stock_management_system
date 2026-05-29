@@ -11,7 +11,7 @@ async function filterProducts(query) {
       },
     });
     if (!response.ok) {
-      throw new Error("Chi 7aja makhdamach");
+      throw new Error("Une erreur est survenue");
     }
     const data = await response.json();
 

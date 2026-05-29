@@ -28,7 +28,7 @@ function CategoryCard({
           <div className={styles.categoryNameBox}>
             <span className={styles.avatar}>{getInitials(category.name)}</span>
             <div className={styles.content}>
-              <span className={styles.subTitle}>category</span>
+              <span className={styles.subTitle}>catégorie</span>
               <h4 className={styles.categoryName}>{category.name}</h4>
             </div>
           </div>
@@ -39,7 +39,7 @@ function CategoryCard({
         <div className={styles.mainBox}>
           <div className={styles.mainWrapper}>
             <div className={styles.productsCountBox}>
-              <h5 className={styles.minTitle}>Products</h5>
+              <h5 className={styles.minTitle}>Produits</h5>
               <p className={styles.count}>{category.products_count}</p>
             </div>
             <div className={styles.descriptionBox}>
@@ -55,14 +55,14 @@ function CategoryCard({
             onClick={() => onOpenModal("edit", category)}
             className={`${styles.actionBtn} ${styles.edit}`}
           >
-            edit
+            modifier
           </button>
           <button
             type="button"
             onClick={() => handleDeleteCategory(category.id)}
             className={`${styles.actionBtn} ${styles.delete}`}
           >
-            delete
+            supprimer
           </button>
         </div>
       </div>

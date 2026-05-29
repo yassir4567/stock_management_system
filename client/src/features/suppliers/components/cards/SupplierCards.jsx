@@ -12,11 +12,11 @@ import { GoHash } from "react-icons/go";
 import { getInitials } from "../../../../helpers/helpers";
 
 const fields = [
-  { label: "Id", key: "id", icon: GoHash, format: (value) => `#${value}` },
-  { label: "Name", key: "name", icon: MdOutlineDriveFileRenameOutline },
+  { label: "ID", key: "id", icon: GoHash, format: (value) => `#${value}` },
+  { label: "Nom", key: "name", icon: MdOutlineDriveFileRenameOutline },
   { label: "Email", key: "email", icon: MdOutlineMailOutline },
-  { label: "Phone", key: "phone", icon: FiPhone },
-  { label: "Address", key: "address", icon: HiOutlineMapPin },
+  { label: "Téléphone", key: "phone", icon: FiPhone },
+  { label: "Adresse", key: "address", icon: HiOutlineMapPin },
 ];
 
 function SupplierCards({ suppliers = [], onOpenModal, onDeleteSupplier }) {
@@ -25,7 +25,7 @@ function SupplierCards({ suppliers = [], onOpenModal, onDeleteSupplier }) {
   if (!hasSuppliers) {
     return (
       <div className={styles.emptyState}>
-        No suppliers match your search yet.
+        Aucun fournisseur ne correspond à votre recherche pour le moment.
       </div>
     );
   }
@@ -40,7 +40,7 @@ function SupplierCards({ suppliers = [], onOpenModal, onDeleteSupplier }) {
                 {getInitials(supplier.name)}
               </span>
               <div className={styles.identityContent}>
-                <span className={styles.eyebrow}>supplier</span>
+                <span className={styles.eyebrow}>fournisseur</span>
                 <h4 className={styles.supplierName}>{supplier.name}</h4>
               </div>
             </div>
@@ -68,7 +68,7 @@ function SupplierCards({ suppliers = [], onOpenModal, onDeleteSupplier }) {
               onClick={() => onOpenModal("edit", supplier)}
             >
               <CiEdit />
-              <span>Edit</span>
+              <span>Modifier</span>
             </button>
 
             <button
@@ -77,7 +77,7 @@ function SupplierCards({ suppliers = [], onOpenModal, onDeleteSupplier }) {
               onClick={() => onDeleteSupplier(supplier.id)}
             >
               <RiDeleteBack2Line />
-              <span>Delete</span>
+              <span>Supprimer</span>
             </button>
           </div>
         </article>

@@ -64,7 +64,7 @@ function SupplierList() {
 
       <div className={styles.section}>
         <div className={styles.sectionHeader}>
-          <h4 className={styles.sectionTitle}>Suppliers</h4>
+          <h4 className={styles.sectionTitle}>Fournisseurs</h4>
         </div>
 
         <SupplierCards
@@ -85,7 +85,10 @@ function SupplierList() {
       )}
 
       {showDeleteAlert && (
-        <DeleteAlert text="supplier" setShowDeleteAlert={setShowDeleteAlert} />
+        <DeleteAlert
+          text="Ce fournisseur"
+          setShowDeleteAlert={setShowDeleteAlert}
+        />
       )}
     </div>
   );

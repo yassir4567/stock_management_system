@@ -44,11 +44,11 @@ function CategoryFormModal({
     const newErrors = {};
 
     if (!form.name) {
-      newErrors.name = "Name required";
+      newErrors.name = "Le nom est requis";
     }
 
     if (!form.description) {
-      newErrors.description = "Description required";
+      newErrors.description = "La description est requise";
     }
     if (Object.keys(newErrors).length > 0) {
       setErrors({
@@ -63,7 +63,7 @@ function CategoryFormModal({
         JSON.stringify(sortObject(initCategory)) ===
         JSON.stringify(sortObject(form))
       ) {
-        setGeneralError("Nothing change");
+        setGeneralError("Aucune modification");
         return;
       } else {
         const response = await updateCategory(form, category.id);
@@ -88,7 +88,9 @@ function CategoryFormModal({
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <h1 className={styles.modalTitle}>
-            {mode === "add" ? "Add" : "Edit"} Category
+            {mode === "add"
+              ? "Ajouter une catégorie"
+              : "Modifier la catégorie"}
           </h1>
           {generalError && (
             <p className={styles.generalError}>{generalError}</p>
@@ -97,14 +99,14 @@ function CategoryFormModal({
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputBox}>
-            <label className={styles.label}>Category name</label>
+            <label className={styles.label}>Nom de la catégorie</label>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChangeInputs}
               className={styles.input}
-              placeholder="Enter category name..."
+              placeholder="Saisir le nom de la catégorie..."
             />
             {errors.name && <p className={styles.error}>{errors.name}</p>}
           </div>
@@ -119,7 +121,7 @@ function CategoryFormModal({
               value={form.description}
               onChange={handleChangeInputs}
               className={styles.textarea}
-              placeholder="Enter category name..."
+              placeholder="Saisir la description de la catégorie..."
             />
             {errors.description && (
               <p className={styles.error}>{errors.description}</p>
@@ -128,14 +130,14 @@ function CategoryFormModal({
 
           <div className={styles.actionsBox}>
             <button type="submit" className={`${styles.action} ${styles.send}`}>
-              Send
+              Enregistrer
             </button>
             <button
               type="reset"
               className={`${styles.action} ${styles.cancel}`}
               onClick={onCloseModal}
             >
-              Cancel
+              Annuler
             </button>
           </div>
         </form>

@@ -15,7 +15,7 @@ const loginUser = async (formData) => {
     if (!response.ok) {
       return {
         success: false,
-        message: data.message || "error in response",
+        message: data.message || "Erreur dans la réponse",
       };
     }
 
@@ -27,7 +27,7 @@ const loginUser = async (formData) => {
   } catch (err) {
     return {
       success: false,
-      message: "Network error",
+      message: "Erreur réseau",
     };
   }
 };

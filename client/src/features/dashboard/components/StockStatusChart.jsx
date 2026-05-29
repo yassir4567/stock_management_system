@@ -18,9 +18,9 @@ function StockStatusChart() {
   }, []);
 
   const labelsMap = {
-    out: "Out of Stock",
-    low: "Low Stock",
-    in: "In Stock",
+    out: "Rupture de stock",
+    low: "Stock faible",
+    in: "En stock",
   };
 
   const data = {
@@ -29,7 +29,7 @@ function StockStatusChart() {
     ),
     datasets: [
       {
-        label: "Products",
+        label: "Produits",
         data: Object.values(stockStatus ?? {}),
         backgroundColor: ["#16a34a", "#2563eb", "#f59e0b", "#dc2626"],
       },

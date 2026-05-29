@@ -39,19 +39,19 @@ function StockActionForm({ isOpen, type, handleCloseForm, setStockMovements }) {
     const newErrors = {};
 
     if (!form.product_id.trim()) {
-      newErrors.product_id = "product required";
+      newErrors.product_id = "Le produit est requis";
     }
 
     const quantityNumber = Number(form.quantity);
 
     if (!form.quantity.trim()) {
-      newErrors.quantity = "Quantity required";
+      newErrors.quantity = "La quantité est requise";
     } else if (!Number.isFinite(quantityNumber)) {
-      newErrors.quantity = "Quantity must be a number";
+      newErrors.quantity = "La quantité doit être un nombre";
     } else if (!Number.isInteger(quantityNumber)) {
-      newErrors.quantity = "Quantity must be integer";
+      newErrors.quantity = "La quantité doit être un entier";
     } else if (quantityNumber < 1) {
-      newErrors.quantity = "Quantity must be at least 1";
+      newErrors.quantity = "La quantité doit être au moins 1";
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -93,18 +93,18 @@ function StockActionForm({ isOpen, type, handleCloseForm, setStockMovements }) {
     <form onSubmit={handleSubmit} className={styles.form}>
       <h2 className={styles.formTitle}>
         {type === "in" ? <FaPlus /> : <TiMinus />}
-        <span>Stock {type}</span>
+        <span>{type === "in" ? "Entrée de stock" : "Sortie de stock"}</span>
       </h2>
       {generalError && <p className={styles.generalError}>{generalError}</p>}
       <div className={styles.row}>
         <div className={styles.inputBox}>
-          <label>Product Name</label>
+          <label>Nom du produit</label>
           <select
             name="product_id"
             value={form.product_id}
             onChange={handleInputChange}
           >
-            <option value="">Select product</option>
+            <option value="">Sélectionner un produit</option>
             {products.map((product) => (
               <option key={product.id} value={product.id}>
                 {product.name}
@@ -117,25 +117,25 @@ function StockActionForm({ isOpen, type, handleCloseForm, setStockMovements }) {
         </div>
 
         <div className={styles.inputBox}>
-          <label>Quantity</label>
+          <label>Quantité</label>
           <input
             type="number"
             name="quantity"
             value={form.quantity}
             onChange={handleInputChange}
-            placeholder="Enter quantity"
+            placeholder="Saisir la quantité"
           />
           {errors.quantity && <p className={styles.error}>{errors.quantity}</p>}
         </div>
       </div>
 
       <div className={styles.textAreaBox}>
-        <label>Note (optional)</label>
+        <label>Note (optionnelle)</label>
         <textarea
           name="note"
           value={form.note}
           onChange={handleInputChange}
-          placeholder="Enter note"
+          placeholder="Saisir une note"
         />
         {errors.note && <p className={styles.error}>{errors.note}</p>}
       </div>
@@ -145,14 +145,14 @@ function StockActionForm({ isOpen, type, handleCloseForm, setStockMovements }) {
           type="submit"
           className={`${styles.actionBtn} ${styles.addBtn}`}
         >
-          <FaPlus /> <span>Add action</span>
+          <FaPlus /> <span>Ajouter l'action</span>
         </button>
         <button
           type="reset"
           className={`${styles.actionBtn} ${styles.cancelBtn}`}
           onClick={handleCloseForm}
         >
-          <span>cancel</span>
+          <span>Annuler</span>
         </button>
       </div>
     </form>

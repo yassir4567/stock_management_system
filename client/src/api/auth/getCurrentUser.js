@@ -16,19 +16,19 @@ const getCurrentUser = async () => {
     if (!response.ok) {
       return {
         success: false,
-        message: data.message || "error in response",
+        message: data.message || "Erreur dans la réponse",
       };
     }
 
     return {
       success: true,
-      message: data.message || "User retreived successfully",
+      message: data.message || "Utilisateur récupéré avec succès",
       user: data,
     };
   } catch (err) {
     return {
       success: false,
-      message: "Network error",
+      message: "Erreur réseau",
     };
   }
 };

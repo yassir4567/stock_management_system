@@ -5,7 +5,7 @@ const ProtectedRoutes = () => {
   const { user, isLoading } = useAuth();
 
   if (isLoading) {
-    return <div>Loading ...</div>;
+    return <div>Chargement ...</div>;
   }
 
   if (!user) {

@@ -8,7 +8,7 @@ function DeleteAlert({ text, setShowDeleteAlert }) {
       onClick={() => setShowDeleteAlert(false)}
     >
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <p>This {text} contains products</p>
+        <p>{text} contient des produits</p>
         <FaPlus
           className={styles.icon}
           onClick={() => setShowDeleteAlert(false)}

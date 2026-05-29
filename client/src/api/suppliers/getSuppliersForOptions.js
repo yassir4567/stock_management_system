@@ -11,7 +11,7 @@ async function getSuppliersForOptions() {
       },
     });
     if (!response.ok) {
-      throw new Error("chi l3ba error");
+      throw new Error("Une erreur est survenue");
     }
     const data = await response.json();
 

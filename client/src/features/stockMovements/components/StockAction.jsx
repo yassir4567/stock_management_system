@@ -3,21 +3,21 @@ import styles from "../styles/StockAction.module.css";
 function StockAction({ handleOpenForm }) {
   return (
     <div className={styles.stockActionBox}>
-      <h3 className={styles.stockTitle}>Stock actions</h3>
+      <h3 className={styles.stockTitle}>Actions de stock</h3>
       <div className={styles.stockActions}>
         <button
           type="button"
           className={`${styles.actionBtn} ${styles.inAction}`}
           onClick={() => handleOpenForm("in")}
         >
-          Stock in
+          Entrée de stock
         </button>
         <button
           type="button"
           className={`${styles.actionBtn} ${styles.outAction}`}
           onClick={() => handleOpenForm("out")}
         >
-          Stock out
+          Sortie de stock
         </button>
       </div>
     </div>

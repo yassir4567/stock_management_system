@@ -33,23 +33,23 @@ function Login() {
             type="email"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            placeholder="Enter email"
+            placeholder="Saisir l'email"
             name="email"
             required
           />
         </div>
         <div className={styles.input_box}>
-          <label htmlFor="">Password</label>
+          <label htmlFor="">Mot de passe</label>
           <input
             type="password"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
-            placeholder="Enter password"
+            placeholder="Saisir le mot de passe"
             name="password"
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Connexion</button>
       </form>
     </div>
   );

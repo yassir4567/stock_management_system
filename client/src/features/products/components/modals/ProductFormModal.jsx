@@ -54,19 +54,19 @@ function ProductFormModal({
     const formErrors = {};
 
     if (!data.name.trim()) {
-      formErrors.name = "Name required";
+      formErrors.name = "Le nom est requis";
     }
 
     if (data.price === "") {
-      formErrors.price = "Price required";
+      formErrors.price = "Le prix est requis";
     } else if (Number(data.price) < 0) {
-      formErrors.price = "Price must be greater than 0";
+      formErrors.price = "Le prix doit être supérieur à 0";
     }
 
     if (data.quantity === "") {
-      formErrors.quantity = "Quantity required";
+      formErrors.quantity = "La quantité est requise";
     } else if (Number(data.quantity) < 0) {
-      formErrors.quantity = "Quantity must be greater than 0";
+      formErrors.quantity = "La quantité doit être supérieure à 0";
     }
 
     // if (!data.description) {
@@ -74,11 +74,11 @@ function ProductFormModal({
     // }
 
     if (!data.supplier_id) {
-      formErrors.supplier_id = "Supplier required";
+      formErrors.supplier_id = "Le fournisseur est requis";
     }
 
     if (!data.category_id) {
-      formErrors.category_id = "Category required";
+      formErrors.category_id = "La catégorie est requise";
     }
 
     return formErrors;
@@ -105,7 +105,7 @@ function ProductFormModal({
         JSON.stringify(sortObject(initProduct)) ===
         JSON.stringify(sortObject(form))
       ) {
-        setGeneralError("Nothing change");
+        setGeneralError("Aucune modification");
         return;
       } else {
         // * send update request and modify the products state array
@@ -129,22 +129,22 @@ function ProductFormModal({
   const inputs = {
     row1: [
       {
-        label: "name",
+        label: "Nom",
         name: "name",
         type: "text",
-        placeholder: "Enter product name...",
+        placeholder: "Saisir le nom du produit...",
       },
       {
-        label: "price",
+        label: "Prix",
         name: "price",
         type: "number",
-        placeholder: "Enter product price...",
+        placeholder: "Saisir le prix du produit...",
       },
       {
-        label: "quantity",
+        label: "Quantité",
         name: "quantity",
         type: "number",
-        placeholder: "Enter product quantity...",
+        placeholder: "Saisir la quantité du produit...",
       },
     ],
   };
@@ -154,7 +154,7 @@ function ProductFormModal({
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <h1 className={styles.modalTitle}>
-            {mode === "add" ? "Add" : "Edit"} Product
+            {mode === "add" ? "Ajouter un produit" : "Modifier le produit"}
           </h1>
           {generalError && (
             <p className={styles.generalError}>{generalError}</p>
@@ -187,7 +187,7 @@ function ProductFormModal({
                 onChange={handleChangeInputs}
               >
                 <option value="" disabled>
-                  Select category
+                  Sélectionner une catégorie
                 </option>
                 {categories.map((category) => (
                   <option key={category.id} value={category.id}>
@@ -207,7 +207,7 @@ function ProductFormModal({
                 onChange={handleChangeInputs}
               >
                 <option value="" disabled>
-                  Select supplier
+                  Sélectionner un fournisseur
                 </option>
                 {suppliers.map((supplier) => (
                   <option key={supplier.id} value={supplier.id}>
@@ -227,7 +227,7 @@ function ProductFormModal({
                 name="description"
                 value={form.description}
                 onChange={handleChangeInputs}
-                placeholder="Enter product description (optionel)"
+                placeholder="Saisir la description du produit (optionnel)"
               ></textarea>
               {errors["description"] && (
                 <p className={styles.error}>{errors["description"]}</p>
@@ -241,14 +241,14 @@ function ProductFormModal({
                 type="submit"
                 className={`${styles.action} ${styles.send}`}
               >
-                Send
+                Enregistrer
               </button>
               <button
                 type="reset"
                 className={`${styles.action} ${styles.cancel}`}
                 onClick={onCloseModal}
               >
-                Cancel
+                Annuler
               </button>
             </div>
           </div>

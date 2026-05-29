@@ -70,14 +70,14 @@ function ProductsList() {
 
       <div className={styles.table}>
         <div className={styles.tableHeader}>
-          <h4 className={styles.tableTitle}>Products</h4>
+          <h4 className={styles.tableTitle}>Produits</h4>
           <button
             type="button"
             className={styles.addProductBtn}
             onClick={() => onOpenModal("add")}
           >
             <GoPlus />
-            <span>Add product</span>
+            <span>Ajouter un produit</span>
           </button>
         </div>
         <ProductsListTable

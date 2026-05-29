@@ -35,7 +35,8 @@ function SupplierModal({
     };
   }, [supplier]);
 
-  const modalTitle = mode === "add" ? "Add Supplier" : "Edit Supplier";
+  const modalTitle =
+    mode === "add" ? "Ajouter un fournisseur" : "Modifier le fournisseur";
 
   const handleChangeInputs = (e) => {
     const { name, value } = e.target;
@@ -48,19 +49,19 @@ function SupplierModal({
     const formErrors = {};
 
     if (!data.name.trim()) {
-      formErrors.name = "Name required";
+      formErrors.name = "Le nom est requis";
     }
 
     if (!data.email.trim()) {
-      formErrors.email = "Email required";
+      formErrors.email = "L'email est requis";
     }
 
     if (!data.phone.trim()) {
-      formErrors.phone = "Phone required";
+      formErrors.phone = "Le téléphone est requis";
     }
 
     if (!data.address.trim()) {
-      formErrors.address = "Address required";
+      formErrors.address = "L'adresse est requise";
     }
 
     return formErrors;
@@ -91,7 +92,7 @@ function SupplierModal({
         JSON.stringify(sortObject(initSupplier)) ===
         JSON.stringify(sortObject(form))
       ) {
-        setGeneralError("Nothing change");
+        setGeneralError("Aucune modification");
         return;
       }
       const result = await updateSupplier(form, supplier.id);
@@ -106,22 +107,22 @@ function SupplierModal({
 
   const fields = [
     {
-      label: "Name",
+      label: "Nom",
       name: "name",
       type: "text",
-      placeholder: "Enter supplier name...",
+      placeholder: "Saisir le nom du fournisseur...",
     },
     {
       label: "Email",
       name: "email",
       type: "email",
-      placeholder: "Enter supplier email...",
+      placeholder: "Saisir l'email du fournisseur...",
     },
     {
-      label: "Phone",
+      label: "Téléphone",
       name: "phone",
       type: "text",
-      placeholder: "Enter supplier phone...",
+      placeholder: "Saisir le téléphone du fournisseur...",
     },
   ];
 
@@ -155,13 +156,13 @@ function SupplierModal({
 
           <div className={styles.row}>
             <div className={styles.textareaBox}>
-              <label htmlFor="address">Address</label>
+              <label htmlFor="address">Adresse</label>
               <textarea
                 id="address"
                 name="address"
                 value={form.address}
                 onChange={handleChangeInputs}
-                placeholder="Enter supplier address..."
+                placeholder="Saisir l'adresse du fournisseur..."
               ></textarea>
               {errors.address && (
                 <p className={styles.error}>{errors.address}</p>
@@ -175,14 +176,16 @@ function SupplierModal({
                 type="submit"
                 className={`${styles.action} ${styles.save}`}
               >
-                {mode === "add" ? "Create supplier" : "Save changes"}
+                {mode === "add"
+                  ? "Créer le fournisseur"
+                  : "Enregistrer les modifications"}
               </button>
               <button
                 type="button"
                 className={`${styles.action} ${styles.cancel}`}
                 onClick={onCloseModal}
               >
-                Cancel
+                Annuler
               </button>
             </div>
           </div>

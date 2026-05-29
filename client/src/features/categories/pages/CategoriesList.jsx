@@ -78,7 +78,7 @@ function CategoriesList() {
             />
           ))
         ) : (
-          <div className={styles.empty}>Empty categories</div>
+          <div className={styles.empty}>Aucune catégorie</div>
         )}
       </div>
 
@@ -92,7 +92,10 @@ function CategoriesList() {
       )}
 
       {showDeleteAlert && (
-        <DeleteAlert text="category" setShowDeleteAlert={setShowDeleteAlert} />
+        <DeleteAlert
+          text="Cette catégorie"
+          setShowDeleteAlert={setShowDeleteAlert}
+        />
       )}
     </div>
   );

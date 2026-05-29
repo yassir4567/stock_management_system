@@ -14,13 +14,13 @@ import { useState } from "react";
 import DeleteProductAlert from "../modals/DeleteProductAlert";
 
 const columns = [
-  { label: "Id", icon: GoHash },
-  { label: "Name", icon: MdOutlineDriveFileRenameOutline },
-  { label: "Price", icon: IoPricetagOutline },
-  { label: "Quantity", icon: AiOutlineStock },
-  { label: "Status", icon: GrStatusInfo },
-  { label: "Category", icon: TbCategory2 },
-  { label: "Supplier", icon: FaLuggageCart },
+  { label: "ID", icon: GoHash },
+  { label: "Nom", icon: MdOutlineDriveFileRenameOutline },
+  { label: "Prix", icon: IoPricetagOutline },
+  { label: "Quantité", icon: AiOutlineStock },
+  { label: "Statut", icon: GrStatusInfo },
+  { label: "Catégorie", icon: TbCategory2 },
+  { label: "Fournisseur", icon: FaLuggageCart },
   { label: "Actions", icon: SlActionRedo },
 ];
 
@@ -28,20 +28,20 @@ const getStockStatus = (quantity) => {
   let numQuantity = Number(quantity);
   if (numQuantity <= 0) {
     return {
-      status: "out of stock",
+      status: "Rupture de stock",
       className: styles.outOfStock,
     };
   }
 
   if (numQuantity <= 10) {
     return {
-      status: "Low stock",
+      status: "Stock faible",
       className: styles.lowStock,
     };
   }
 
   return {
-    status: "In stock",
+    status: "En stock",
     className: styles.inStock,
   };
 };
@@ -164,7 +164,7 @@ function ProductsListTable({ products = [], onOpenModal, setProducts }) {
           ) : (
             <tr>
               <td colSpan={columns.length} className={styles.emptyState}>
-                No products available yet.
+                Aucun produit disponible pour le moment.
               </td>
             </tr>
           )}

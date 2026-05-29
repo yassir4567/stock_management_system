@@ -42,7 +42,7 @@ function ProductsListHeader({ setProducts, categories, suppliers }) {
             onChange={handleChangeInputs}
             className={styles.select}
           >
-            <option value="">All</option>
+            <option value="">Tous</option>
             {categories?.map((category) => (
               <option key={category.id} value={category.id}>
                 {category.name}
@@ -56,7 +56,7 @@ function ProductsListHeader({ setProducts, categories, suppliers }) {
             onChange={handleChangeInputs}
             className={styles.select}
           >
-            <option value="">All</option>
+            <option value="">Tous</option>
             {suppliers?.map((supplier) => (
               <option key={supplier.id} value={supplier.id}>
                 {supplier.name}
@@ -69,13 +69,13 @@ function ProductsListHeader({ setProducts, categories, suppliers }) {
           <Input
             className={styles.searchInput}
             icon={<IoSearch className={styles.icon} />}
-            placeholder="Search by name..."
+            placeholder="Rechercher par nom..."
             name="search"
             value={filters.search}
             onChange={handleChangeInputs}
           />
           <button type="submit" className={styles.applyFilter}>
-            Apply filters
+            Appliquer les filtres
           </button>
         </div>
       </form>

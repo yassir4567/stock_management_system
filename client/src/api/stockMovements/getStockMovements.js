@@ -13,20 +13,20 @@ async function getStockMovements(productId) {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch stock movements");
+      throw new Error("Impossible de récupérer les mouvements de stock");
     }
 
     const data = await response.json();
 
     return {
       success: true,
-      message: data.message || "Success",
+      message: data.message || "Succès",
       data: data.data,
     };
   } catch (err) {
     return {
       success: false,
-      message: err.message || "Network error",
+      message: err.message || "Erreur réseau",
       errors: err,
     };
   }

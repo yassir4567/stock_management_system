@@ -14,7 +14,7 @@ function DashboardHeader() {
         <div className={styles.avatar}>FN</div>
         <div className={styles.content}>
           <span className={styles.dashboardOverViewTitle}>
-            Dashboard overview
+            Aperçu du tableau de bord
           </span>
           <h4 className={styles.fullName}>
             {user.firstName} {user.lastName}
@@ -25,7 +25,7 @@ function DashboardHeader() {
 
       <div className={styles.logoutBox}>
         <button onClick={handleLogout} className={styles.logout}>
-          <span className={styles.logoutText}>Logout</span>
+          <span className={styles.logoutText}>Déconnexion</span>
         </button>
       </div>
     </header>

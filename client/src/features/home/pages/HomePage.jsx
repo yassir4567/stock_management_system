@@ -5,20 +5,21 @@ function HomePage() {
   return (
     <div className={styles.homepage}>
       <div className={styles.wrapper}>
-        <span className={styles.badge}>Stock Management System</span>
+        <span className={styles.badge}>Système de gestion de stock</span>
 
         <h1 className={styles.title}>
-          Keep your stock organized, visible, and ready for the next move.
+          Gardez votre stock organisé, visible et prêt pour la prochaine
+          opération.
         </h1>
 
         <p className={styles.description}>
-          Manage products, categories, and daily stock activity from one clean
-          workspace !!!
+          Gérez les produits, les catégories et l'activité quotidienne du stock
+          depuis un espace de travail clair.
         </p>
 
         <div className={styles.actions}>
           <Link className={`${styles.action} ${styles.login}`} to="/login">
-            Login
+            Connexion
           </Link>
         </div>
       </div>

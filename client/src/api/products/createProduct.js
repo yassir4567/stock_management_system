@@ -22,7 +22,7 @@ const createProduct = async (form) => {
     if (!response.ok) {
       return {
         success: false,
-        message: data.message || "fetch error",
+        message: data.message || "Erreur lors de la récupération",
       };
     }
     return {

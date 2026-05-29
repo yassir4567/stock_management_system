@@ -16,19 +16,19 @@ export const getProductsByCategory = async () => {
     if (!response.ok || !data.success) {
       return {
         success: false,
-        message: data.message || "Failed",
+        message: data.message || "Échec de l'opération",
       };
     }
 
     return {
       success: true,
-      message: data.message || "Success",
+      message: data.message || "Succès",
       data: data.data,
     };
   } catch (err) {
     return {
       success: false,
-      message: err.message || "Network error",
+      message: err.message || "Erreur réseau",
     };
   }
 };

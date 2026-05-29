@@ -53,7 +53,9 @@ function StockMovements() {
         setStockMovements(result.data ?? []);
       } else {
         setStockMovements([]);
-        setMovementsError(result?.message || "Failed to load stock movements");
+        setMovementsError(
+          result?.message || "Impossible de charger les mouvements de stock",
+        );
       }
 
       setIsLoadingMovements(false);
@@ -91,16 +93,16 @@ function StockMovements() {
       )}
       <div className={styles.movementsSection}>
         <div className={styles.sectionHeader}>
-          <h2 className={styles.movementsTitle}>Stock Movements</h2>
+          <h2 className={styles.movementsTitle}>Mouvements de stock</h2>
 
           <div className={styles.filterBox}>
-            <label>Select product</label>
+            <label>Sélectionner un produit</label>
             <select
               name="product_id"
               value={product_id}
               onChange={(e) => setParams({ product_id: e.target.value })}
             >
-              <option value="">Select product</option>
+              <option value="">Sélectionner un produit</option>
               {products.map((product) => (
                 <option key={product.id} value={product.id}>
                   {product.name}

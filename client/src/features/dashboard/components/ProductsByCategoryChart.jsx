@@ -28,7 +28,7 @@ function ProductsByCategoryChart() {
     labels: productsByCategory.map((pbc) => pbc.name),
     datasets: [
       {
-        label: "Number of products",
+        label: "Nombre de produits",
         data: productsByCategory.map((pbc) => pbc.products_count),
         backgroundColor: "#22c55e",
         borderRadius: 8,
@@ -40,7 +40,7 @@ function ProductsByCategoryChart() {
     plugins: {
       title: {
         display: true,
-        text: "Products by Category",
+        text: "Produits par catégorie",
         font: {
           size: 24, // حجم العنوان
           weight: "bold", // optional

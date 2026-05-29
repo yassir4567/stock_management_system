@@ -25,27 +25,27 @@ function Dashboard() {
 
   const stats_cards = [
     {
-      label: "All products",
+      label: "Tous les produits",
       icon: FiShoppingCart,
       total: stats?.total_products || 0,
     },
     {
-      label: "All categories",
+      label: "Toutes les catégories",
       icon: BiCategoryAlt,
       total: stats?.total_categories || 0,
     },
     {
-      label: "All suppliers",
+      label: "Tous les fournisseurs",
       icon: LuUsers,
       total: stats?.total_suppliers || 0,
     },
     {
-      label: "Low stock",
+      label: "Stock faible",
       icon: CgArrowBottomRight,
       total: stats?.total_products_low_stock || 0,
     },
     {
-      label: "Out of stock",
+      label: "Rupture de stock",
       icon: IoWarningOutline,
       total: stats?.total_products_out_of_stock || 0,
     },
