@@ -1,8 +1,6 @@
 import { useState } from "react";
-import Button from "../../../shared/ui/Button";
 import Input from "../../../shared/ui/Input";
 import styles from "../styles/ProductsListHeader.module.css";
-import { GoPlus } from "react-icons/go";
 import { IoSearch } from "react-icons/io5";
 import { filterProducts } from "../../../api/products/filterProducts";
 
@@ -23,7 +21,7 @@ function ProductsListHeader({ setProducts, categories, suppliers }) {
 
     const cleanFilters = Object.fromEntries(
       Object.entries(filters).filter(
-        ([_, val]) => val !== "" && val !== null && val !== undefined,
+        ([, val]) => val !== "" && val !== null && val !== undefined,
       ),
     );
     const params = new URLSearchParams(cleanFilters);
@@ -36,44 +34,56 @@ function ProductsListHeader({ setProducts, categories, suppliers }) {
     <div className={styles.header}>
       <form onSubmit={handleFilters} className={styles.form}>
         <div className={styles.filtersContainer}>
-          <select
-            name="category_id"
-            value={filters.category_id}
-            onChange={handleChangeInputs}
-            className={styles.select}
-          >
-            <option value="">Tous</option>
-            {categories?.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.name}
-              </option>
-            ))}
-          </select>
+          <div className={styles.filterField}>
+            <label htmlFor="product-category-filter">Catégorie</label>
+            <select
+              id="product-category-filter"
+              name="category_id"
+              value={filters.category_id}
+              onChange={handleChangeInputs}
+              className={styles.select}
+            >
+              <option value="">Tous</option>
+              {categories?.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
-          <select
-            name="supplier_id"
-            value={filters.supplier_id}
-            onChange={handleChangeInputs}
-            className={styles.select}
-          >
-            <option value="">Tous</option>
-            {suppliers?.map((supplier) => (
-              <option key={supplier.id} value={supplier.id}>
-                {supplier.name}
-              </option>
-            ))}
-          </select>
+          <div className={styles.filterField}>
+            <label htmlFor="product-supplier-filter">Fournisseur</label>
+            <select
+              id="product-supplier-filter"
+              name="supplier_id"
+              value={filters.supplier_id}
+              onChange={handleChangeInputs}
+              className={styles.select}
+            >
+              <option value="">Tous</option>
+              {suppliers?.map((supplier) => (
+                <option key={supplier.id} value={supplier.id}>
+                  {supplier.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
         <div className={styles.rightSide}>
-          <Input
-            className={styles.searchInput}
-            icon={<IoSearch className={styles.icon} />}
-            placeholder="Rechercher par nom..."
-            name="search"
-            value={filters.search}
-            onChange={handleChangeInputs}
-          />
+          <div className={styles.filterField}>
+            <label htmlFor="product-search-filter">Recherche</label>
+            <Input
+              id="product-search-filter"
+              className={styles.searchInput}
+              icon={<IoSearch className={styles.icon} />}
+              placeholder="Rechercher par nom..."
+              name="search"
+              value={filters.search}
+              onChange={handleChangeInputs}
+            />
+          </div>
           <button type="submit" className={styles.applyFilter}>
             Appliquer les filtres
           </button>

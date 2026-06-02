@@ -35,11 +35,11 @@ function getTypeClass(type) {
 
 function getTypeLabel(type) {
   if (type === "in") {
-    return "Entrée";
+    return "In";
   }
 
   if (type === "out") {
-    return "Sortie";
+    return "Out";
   }
 
   return type ?? "--";

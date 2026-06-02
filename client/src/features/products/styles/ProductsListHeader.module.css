@@ -1,7 +1,10 @@
 .form {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  flex-wrap: nowrap;
   gap: 20px;
+  width: 100%;
+  padding-inline: 40px;
 }
 
 .title {
@@ -10,14 +13,12 @@
 }
 
 .rightSide {
-  display: flex;
-  align-items: center;
-  gap: 25px;
+  display: contents;
 }
 
 .searchInput {
   position: relative;
-  width: 320px;
+  width: 100%;
   height: 50px;
 }
 
@@ -34,12 +35,29 @@
 }
 
 .filtersContainer {
+  display: contents;
+}
+
+.filterField {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1 1 0;
+  gap: 10px;
+  min-width: 0;
+}
+
+.filterField label {
+  background-color: var(--color-success-bg);
+  width: fit-content;
+  padding: 5px 17px;
+  font-size: var(--fs-sm);
+  border-radius: 15px;
+  white-space: nowrap;
 }
 
 .filtersContainer .select {
-  width: 320px;
+  width: 100%;
   height: 50px;
   border-radius: 40px;
   background-color: var(--color-white);
@@ -48,6 +66,7 @@
 }
 
 .applyFilter {
+  flex: 0 0 auto;
   background-color: transparent;
   color: var(--color-success);
   min-width: fit-content;
@@ -55,6 +74,7 @@
   padding: 0 0 5px 0;
   position: relative;
   transition: 0.2s;
+  white-space: nowrap;
 }
 
 .applyFilter::after {
@@ -70,4 +90,22 @@
 
 .applyFilter:hover::after {
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .filterField {
+    flex-basis: 100%;
+  }
+
+  .searchInput,
+  .filtersContainer .select {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+  }
 }
