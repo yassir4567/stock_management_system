@@ -37,7 +37,6 @@ function StockStatusChart() {
   };
   const options = {
     responsive: true,
-    // maintainAspectRatio: false,
     cutout: "60%",
     plugins: {
       legend: {

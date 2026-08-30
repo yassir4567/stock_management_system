@@ -56,7 +56,7 @@ function getNotePreview(noteValue) {
     };
   }
 
-  const words = fullNote.split(/\s+/);
+  const words = fullNote.split(" ");
 
   if (words.length <= 3) {
     return {
@@ -200,7 +200,7 @@ function StockMovementsTable({
                       </span>
 
                       {notePreview.fullNote ? (
-                        <div className={styles.noteTooltip} role="tooltip">
+                        <div className={styles.noteTooltip} >
                           {notePreview.fullNote}
                         </div>
                       ) : null}

@@ -30,8 +30,6 @@ function StockMovements() {
   }, []);
 
   useEffect(() => {
-    let ignore = false;
-
     const loadStockMovements = async () => {
       if (!product_id) {
         setStockMovements([]);
@@ -44,10 +42,6 @@ function StockMovements() {
       setMovementsError("");
 
       const result = await getStockMovements(product_id);
-
-      if (ignore) {
-        return;
-      }
 
       if (result?.success) {
         setStockMovements(result.data ?? []);
@@ -62,10 +56,6 @@ function StockMovements() {
     };
 
     loadStockMovements();
-
-    return () => {
-      ignore = true;
-    };
   }, [product_id]);
 
   const handleOpenForm = (type) => {

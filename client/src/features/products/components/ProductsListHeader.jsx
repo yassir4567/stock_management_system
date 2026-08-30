@@ -2,7 +2,7 @@ import { useState } from "react";
 import Input from "../../../shared/ui/Input";
 import styles from "../styles/ProductsListHeader.module.css";
 import { IoSearch } from "react-icons/io5";
-import { filterProducts } from "../../../api/products/filterProducts";
+import { getProducts } from "../../../api/products/getProducts";
 
 function ProductsListHeader({ setProducts, categories, suppliers }) {
   const [filters, setFilters] = useState({
@@ -18,7 +18,7 @@ function ProductsListHeader({ setProducts, categories, suppliers }) {
 
   const handleFilters = async (e) => {
     e.preventDefault();
-
+ 
     const cleanFilters = Object.fromEntries(
       Object.entries(filters).filter(
         ([, val]) => val !== "" && val !== null && val !== undefined,
@@ -26,7 +26,7 @@ function ProductsListHeader({ setProducts, categories, suppliers }) {
     );
     const params = new URLSearchParams(cleanFilters);
 
-    const data = await filterProducts(params);
+    const data = await getProducts(params);
     setProducts(data?.data || []);
   };
 

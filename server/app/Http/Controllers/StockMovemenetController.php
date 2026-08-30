@@ -68,7 +68,7 @@ class StockMovemenetController extends Controller
         if ($product->quantity < $validate['quantity']) {
             return response()->json([
                 'success' => false,
-                'message' => 'Not enough stock available'
+                'message' => 'Stock insuffisant'
             ]);
         }
 

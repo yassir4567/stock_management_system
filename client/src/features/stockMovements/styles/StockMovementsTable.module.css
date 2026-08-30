@@ -4,7 +4,7 @@
 
 .tableWrapper {
   margin-top: 0;
-  overflow-x: auto;
+  /* overflow-x: auto; */
 }
 
 .table {

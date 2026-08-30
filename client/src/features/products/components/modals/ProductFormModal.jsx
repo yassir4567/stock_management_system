@@ -16,7 +16,7 @@ function ProductFormModal({
   const [form, setForm] = useState({
     name: product?.name || "",
     price: product?.price || "",
-    quantity: product?.quantity || "",
+    quantity: product?.quantity ?? "",
     description: product?.description || "",
     category_id: product?.category_id || "",
     supplier_id: product?.supplier_id || "",
@@ -37,7 +37,7 @@ function ProductFormModal({
     return {
       name: product?.name || "",
       price: product?.price || "",
-      quantity: product?.quantity || "",
+      quantity: product?.quantity ?? "",
       description: product?.description || "",
       category_id: product?.category_id || "",
       supplier_id: product?.supplier_id || "",
@@ -69,10 +69,6 @@ function ProductFormModal({
       formErrors.quantity = "La quantité doit être supérieure à 0";
     }
 
-    // if (!data.description) {
-    //   formErrors.description = "Description required";
-    // }
-
     if (!data.supplier_id) {
       formErrors.supplier_id = "Le fournisseur est requis";
     }
@@ -93,7 +89,6 @@ function ProductFormModal({
         name: validateFormData?.name || "",
         price: validateFormData?.price || "",
         quantity: validateFormData?.quantity || "",
-        // description: validateFormData?.description || "",
         category_id: validateFormData?.category_id || "",
         supplier_id: validateFormData?.supplier_id || "",
       });
@@ -160,7 +155,7 @@ function ProductFormModal({
             <p className={styles.generalError}>{generalError}</p>
           )}
         </div>
-        <form className={styles.form} method="POST" onSubmit={handleSubmit}>
+        <form className={styles.form}  onSubmit={handleSubmit}>
           <div className={styles.row}>
             {inputs.row1.map((row, index) => (
               <div key={index} className={styles.inputBox}>
